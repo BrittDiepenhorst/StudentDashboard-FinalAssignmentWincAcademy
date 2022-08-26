@@ -1,27 +1,40 @@
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import BarChart from "./components/BarChart"
-import UserProfiles from "./components/UserProfiles"
+import Header from './components/Header';
+import NavbarStudents from './components/NavbarStudents';
+import NavbarAssignments from './components/NavbarAssignments';
+import Barchart from './components/Barchart';
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
 
-      <header className="App-header">
-        HEADER
-      </header>
-
-      <h1>Student Dashboard</h1>
-      <div>
-        <h1>BarChart</h1>
-        <BarChart />
+      <div className='container'>
+        <Header />
+        <NavbarStudents />
+        <NavbarAssignments />
+        <Barchart />
+        <Footer />
       </div>
+      <Routes>
 
-      <div>
-        <h1>User Profiles</h1>
-        <UserProfiles />
-      </div>
+        {/* <Route path='/Students/Student/:name'
+          render={(props) => <StudentPage {...props} studentData={studentData} />}
+        />
 
-    </div>
+        <Route path='/Students/'>
+          <StudentPage students={students} />
+        </Route> */}
+
+        {/* <Route path='/'>
+          <Dashboard />
+        </Route> */}
+
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 

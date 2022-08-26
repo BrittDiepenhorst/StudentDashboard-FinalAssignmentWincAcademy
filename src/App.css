@@ -1,0 +1,64 @@
+.container {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-areas:
+    "header header"
+    "navbarstudents navbarstudents"
+    "navbarassignments barchart"
+    "footer footer";
+}
+
+.app-header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    color: rgb(86, 87, 88);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.header-img {
+    margin: 15px 10px 5px 15px;
+}
+
+.header-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.app-navbar {
+    background-color: #D7e8f9;
+    color: rgb(86, 87, 88);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px 20px 15px 20px;
+}
+
+.app-navbar-SelectAll {
+    background-color: #Ffc548;
+    padding: 5px 10px 5px 10px;
+    border: gray solid;
+    font-size: 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.navbar-students {
+    grid-area: navbarstudents;
+
+}
+
+.navbar-assignment {
+    grid-area: navbarassignments;
+    margin-top: 0px;
+    width: 100px;
+    height: 1000px;
+}
+
+.app-barchart {
+    grid-area: barchart;
+}
+
+.app-footer{
+    grid-area: footer;
+}
