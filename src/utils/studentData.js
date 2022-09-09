@@ -1,6 +1,10 @@
-const DataStudents = (reviewData) => {
-    const data = JSON.parse(reviewData);
-    return data;
-}
+import reviewData from './mockdata_Winc.json';
 
-export default DataStudents;
+const studentData = () => {
+    const studentData = JSON.stringify(reviewData);
+    const studentDataReview = studentData.reviews;
+    console.log(studentDataReview);
+    return studentDataReview;
+};
+
+export default studentData;
