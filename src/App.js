@@ -25,7 +25,7 @@ function App() {
       <Routes>
 
         <Route path='students' element={<Students />} />
-        <Route path='students/:studentId' element={<Student />} />
+        <Route path='students/:studentName' element={<Student />} />
 
         {/* <Route path='/Students/Student/:name'
           render={(props) => <StudentPage {...props} studentData={studentData} />}

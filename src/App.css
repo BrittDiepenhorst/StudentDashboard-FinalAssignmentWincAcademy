@@ -36,23 +36,46 @@
 .app-navbar-SelectAll {
     background-color: #Ffc548;
     padding: 5px 10px 5px 10px;
-    border: gray solid;
+    border: gray solid 2px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     font-size: 14px;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 10px 0px 10px 0px;
+}
+
+.app-navbar-SelectAll:hover {
+    background-color: rgb(224, 153, 0);
 }
 
 .navbar-students {
     grid-area: navbarstudents;
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.navbar-students div {
+    font-size: 12px;
+}
+
+.navbar-students h3 {
+    flex-basis: 100%;
+}
+
+.navbar-students .AllStudents {
+    flex-basis: 100%;
 }
 
 .navbar-assignment {
     grid-area: navbarassignments;
     margin-top: 0px;
-    width: 100px;
-    height: 1000px;
+    width: 230px;
+    height: auto;
+    padding: 0px 5px 10px 5px;
+}
+
+.navbar-assignment div {
+    font-size: 12px;
 }
 
 .app-barchart {
@@ -61,4 +84,18 @@
 
 .app-footer{
     grid-area: footer;
+}
+
+@media (min-width: 800px) {
+    .navbar-assignment {
+        width: 300px;
+    } 
+
+    .navbar-assignment div {
+        font-size: 16px;
+    }
+
+    .navbar-students div {
+        font-size: 16px;
+    }
 }

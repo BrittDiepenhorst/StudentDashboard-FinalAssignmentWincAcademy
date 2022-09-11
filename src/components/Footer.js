@@ -1,8 +1,7 @@
-const Footer = ({ data }) => {
-    console.log(data)
+const Footer = () => {
     return (
         <div className='app-footer'>
-            <h1>Footer</h1>
+            <h3>Github:</h3> <a href='https://github.com/BrittDiepenhorst/Student-dashboard'>Britt Diepenhorst</a>
         </div>
     )
 }
