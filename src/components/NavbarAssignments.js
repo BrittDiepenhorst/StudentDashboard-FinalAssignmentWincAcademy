@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import studentData from '../utils/mockdata_Winc.json'
-// import assignments from '../utils/functions'
 
 const NavbarAssignments = () => {
     const [difficultOrFun, setDifficultOrFun] = useState({
@@ -37,27 +36,8 @@ const NavbarAssignments = () => {
                 </div>
             ))}
 
-
-            {/* {assignments.forEach(assignment => {
-                return <div>{assignment}</div>
-                // <input type="checkbox" /> && <label>{assignment}</label>
-            })
-            } */}
-
         </nav>
     )
 }
 
 export default NavbarAssignments;
-
-// const songRow = songs.map(song => (
-//     <tr key={song.id}>
-//         <td>{song.songTitle}</td>
-//         <td>{song.artistName}</td>
-//         <td>{song.genre}</td>
-//         <td>{song.rating}</td>
-//         <td><button onClick={(e) => {
-//             console.log(`Deleting ${song.id}`);
-//             dispatch(deleteSong(song.id));
-//         }}>Delete Song</button></td>
-//     </tr>

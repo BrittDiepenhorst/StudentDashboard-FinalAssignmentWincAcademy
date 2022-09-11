@@ -1,7 +1,11 @@
+// import githubLogo from '../images/WincAcademy-logo.png'
+import githubLogo from '../images/GitHub-Logo.png'
+
 const Footer = () => {
     return (
         <div className='app-footer'>
-            <h3>Github:</h3> <a href='https://github.com/BrittDiepenhorst/Student-dashboard'>Britt Diepenhorst</a>
+            <a href='https://github.com/BrittDiepenhorst/Student-dashboard'><img src={githubLogo} alt="logo" width='100px'></img></a>
+            <p>Britt Diepenhorst</p>
         </div>
     )
 }
