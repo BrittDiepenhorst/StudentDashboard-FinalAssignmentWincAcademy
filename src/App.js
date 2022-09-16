@@ -16,10 +16,10 @@ function App() {
 
       <div className='container'>
         <Header />
-        <NavbarStudents data={studentData} />
+        <NavbarStudents />
         <NavbarAssignments />
         <Barchart />
-        <Footer data={studentData} />
+        <Footer />
 
       </div>
       <Routes>

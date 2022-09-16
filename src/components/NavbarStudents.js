@@ -1,6 +1,6 @@
 import studentDataProfiles from '../utils/MOCK_DATA.json'
 
-const NavbarStudents = ({ data }) => {
+const NavbarStudents = () => {
     const allStudents = studentDataProfiles.studentProfiles.map(studentProfile => studentProfile.firstName);
     console.log(allStudents);
 

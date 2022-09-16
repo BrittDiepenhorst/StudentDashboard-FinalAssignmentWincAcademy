@@ -92,12 +92,15 @@ h3 {
     font-size: 20px;
     padding-left: 20px;
     display: flex;
-    justify-content: space-between;
 }
 
 .app-footer p {
-    margin: 0px;
-    align-self: flex-end;
+    padding-left: 10px;
+}
+
+.app-footer a, a:visited{
+    text-decoration: none;
+    color: inherit;
 }
 
 @media (min-width: 800px) {
