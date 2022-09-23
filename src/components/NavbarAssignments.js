@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import studentData from '../utils/mockdata_Winc.json'
+import studentData from '../utils/reviewsWincAcademy.json'
 
 const NavbarAssignments = () => {
     const [difficultOrFun, setDifficultOrFun] = useState({
@@ -7,13 +7,15 @@ const NavbarAssignments = () => {
         showFun: true,
     });
 
-    const handleFilterChange = (e) => {
-        if (difficultOrFun === 'difficulty') {
-            setDifficultOrFun((!difficultOrFun.showDifficult))
-        } else if (difficultOrFun === 'fun') {
-            setDifficultOrFun((!difficultOrFun.showFun))
-        }
-    };
+// hele {} moet nu voldoen aan de string difficulty. 
+
+    // const handleFilterChange = (e) => {
+    //     if (difficultOrFun === 'difficulty') {
+    //         setDifficultOrFun((!difficultOrFun.showDifficult))
+    //     } else if (difficultOrFun === 'fun') {
+    //         setDifficultOrFun((!difficultOrFun.showFun))
+    //     }
+    // };
 
     const allAssignments = studentData.reviews.map(review => review.assignment);
     const assignments = [];

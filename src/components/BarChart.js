@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import studentData from '../utils/mockdata_Winc.json'
 import {
     VictoryBar,
     VictoryChart,
@@ -10,11 +9,17 @@ import {
     VictoryGroup
 } from "victory";
 
-const Barchart = () => {
+const Barchart = ({ data }) => {
 
     return (
         <VictoryChart>
             <VictoryBar
+                data={data}
+
+            />
+
+
+            {/* <VictoryBar
                 style={{ data: { fill: "tomato", width: 25 } }}
                 data={[
                     { x: "cat", y: 10 },
@@ -36,7 +41,7 @@ const Barchart = () => {
                         />
                     );
                 })
-            }
+            } */}
         </VictoryChart>
 
     )

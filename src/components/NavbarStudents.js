@@ -1,9 +1,8 @@
-import studentDataProfiles from '../utils/MOCK_DATA.json'
+import studentProfilesData from '../utils/studentProfilesData.json'
+// import { getStudentByNameArray } from '../utils/filtersStudentData';
 
 const NavbarStudents = () => {
-    const allStudents = studentDataProfiles.studentProfiles.map(studentProfile => studentProfile.firstName);
-    console.log(allStudents);
-
+    const allStudents = studentProfilesData.studentProfiles.map(studentProfile => studentProfile.firstName);
     const students = [];
     allStudents.forEach(student => {
         if (!students.includes(student)) {
@@ -11,6 +10,9 @@ const NavbarStudents = () => {
         }
         return students;
     })
+    // console.log(getStudentByNameArray);
+    // const students = getStudentByNameArray();
+    // console.log(students);
 
     return (
         <nav className='app-navbar navbar-students'>
