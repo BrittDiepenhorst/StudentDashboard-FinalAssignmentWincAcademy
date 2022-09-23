@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import studentData from '../utils/reviewsWincAcademy.json'
+import studentData from '../utils/reviewsWincAcademy.json';
+import { getAllReviews } from '../utils/filtersStudentData';
 
 const NavbarAssignments = () => {
     const [difficultOrFun, setDifficultOrFun] = useState({
@@ -7,7 +8,7 @@ const NavbarAssignments = () => {
         showFun: true,
     });
 
-// hele {} moet nu voldoen aan de string difficulty. 
+    // hele {} moet nu voldoen aan de string difficulty. 
 
     // const handleFilterChange = (e) => {
     //     if (difficultOrFun === 'difficulty') {

@@ -1,27 +1,26 @@
-import studentProfilesData from '../utils/studentProfilesData.json'
-// import { getStudentByNameArray } from '../utils/filtersStudentData';
+import { getAllStudents } from '../utils/filtersStudentData';
+import { useNavigate } from 'react-router-dom'
 
 const NavbarStudents = () => {
-    const allStudents = studentProfilesData.studentProfiles.map(studentProfile => studentProfile.firstName);
-    const students = [];
-    allStudents.forEach(student => {
-        if (!students.includes(student)) {
-            students.push(student)
+    const students = getAllStudents();
+    console.log(students)
+    const navigate = useNavigate();
+
+    const handlesStudentCheckbox = (e) => {
+        if (e.target.checked == true) {
+            console.log('check', e.target, e.target.value)
+            navigate('students/' + e.target.value)
         }
-        return students;
-    })
-    // console.log(getStudentByNameArray);
-    // const students = getStudentByNameArray();
-    // console.log(students);
+    }
 
     return (
         <nav className='app-navbar navbar-students'>
             <h3>Select or unselect a student</h3>
             <div className='AllStudents'><button className='app-navbar-SelectAll'>Select all students</button></div>
-            {students.map(student => (
+            {students.studentProfiles.map(student => (
                 <div className='studentCheckbox'>
-                    <input type="checkbox" />
-                    <label className='studentheckboxLabels'>{student}</label>
+                    <input type="checkbox" value={student.firstName} id={student.id} onClick={handlesStudentCheckbox} />
+                    <label className='studentheckboxLabels'>{student.firstName} {student.lastName}</label>
                 </div>
             ))}
 

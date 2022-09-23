@@ -1,7 +1,7 @@
-import studentReviewsData from '../utils/reviewsWincAcademy.json';
+import studentReviewsData from './reviewsWincAcademy.json';
 import studentProfilesData from './studentProfilesData.json';
 
-// alle functions filters
+// STUDENTS
 
 export function getAllStudents() {
     return studentProfilesData;
@@ -11,7 +11,6 @@ export function getStudentByName(studentName) {
     let student = studentProfilesData.studentProfiles.filter(
         (student) => student.firstName === studentName
     )[0];
-
     return student;
 }
 
@@ -27,6 +26,12 @@ export function getStudentByNameArray() {
     })
 }
 
+// REVIEWS
+
+export function getAllReviews() {
+    return studentReviewsData
+}
+
 export function getReviewsByName(studentName) {
     let reviewsByName = studentReviewsData.reviews.filter(
         (review) => review.name === studentName
@@ -40,3 +45,4 @@ export function getReviewsByAssignment(assignmentName) {
     );
     return reviewsByAssignment;
 }
+

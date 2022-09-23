@@ -12,8 +12,8 @@ const Student = () => {
     return (
         <div>
             <h1>Student: {studentName} {student.lastName}</h1>
-            <h4>Student details</h4>
-            <div>
+            <div className="studentdetails">
+                <h4>Student details</h4>
                 <img src={student.photo} alt="profilephoto" width='50px'></img>
                 <p>Age: {student.age} </p>
                 <p>Phone number: {student.phonenumber}</p>
@@ -22,7 +22,7 @@ const Student = () => {
 
             <pre>{JSON.stringify(student, null, 2)}</pre>
             <pre>{JSON.stringify(reviews, null, 2)}</pre>
-            <Barchart data={reviews} />
+            {/* <Barchart data={reviews} /> */}
         </div>
     );
 };
