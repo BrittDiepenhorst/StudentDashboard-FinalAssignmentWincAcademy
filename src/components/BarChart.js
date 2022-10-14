@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import {
     VictoryBar,
     VictoryChart,
-    VictoryAxis,
-    VictoryTheme,
-    VictoryTooltip,
-    VictoryLine,
-    VictoryGroup
+    // VictoryAxis,
+    // VictoryTheme,
+    // VictoryTooltip,
+    // VictoryLine,
+    // VictoryGroup
 } from "victory";
 
 const Barchart = ({ data }) => {

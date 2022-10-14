@@ -3,10 +3,12 @@ import studentData from '../utils/reviewsWincAcademy.json';
 import { getAllReviews } from '../utils/filtersStudentData';
 
 const NavbarAssignments = () => {
-    const [difficultOrFun, setDifficultOrFun] = useState({
-        showDifficult: true,
-        showFun: true,
-    });
+    const reviews = getAllReviews();
+    console.log(reviews);
+    // const [difficultOrFun, setDifficultOrFun] = useState({
+    //     showDifficult: true,
+    //     showFun: true,
+    // });
 
     // hele {} moet nu voldoen aan de string difficulty. 
 
