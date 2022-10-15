@@ -4,35 +4,32 @@ import React, { useState, useEffect } from 'react';
 
 const studentsData = getAllStudents().studentProfiles;
 
-console.log(studentsData)
-
 const NavbarStudents = () => {
     const [students, setStudents] = useState([]);
+    const [isAllSelect, setIsAllSelect] = useState(true);
 
     useEffect(() => {
         setStudents(studentsData);
     }, []);
 
     const handleChange = (e) => {
-        const { name, checked } = e.target;
+        const { name } = e.target;
         if (name === "allSelect") {
+            setIsAllSelect(!isAllSelect)
             let tempStudent = students.map((student) => {
-                return { ...student, isChecked: checked };
+                return { ...student, isChecked: isAllSelect };
             });
             setStudents(tempStudent);
         } else {
             let tempStudent = students.map((student) =>
-                student.firstName === name ? { ...student, isChecked: checked } : student
+                student.firstName === name ? { ...student, isChecked: isAllSelect } : student
             );
             setStudents(tempStudent);
         }
     }
 
-    // const newArray = () => {
-    //     if (isChecked === checked ) {
-
-    //     }
-    // }
+    // students.filter(student => student.isChecked).map(student => return student /** hier zijn enkel studenten die gechecked zijn*/)
+    // een 2e array voor enkel de studenten die je mee wilt nemen voor je grafiek kan zeker ja! het is dan wel belangrijk niet te vergeten om studenten er uit te filteren als de checkbox niet aangevinkt is. en vice versa
 
     // if (e.target.checked == true) {
     //     const newArray = [{
@@ -49,23 +46,10 @@ const NavbarStudents = () => {
             <h3>Select or unselect a student</h3>
 
             <div className='AllStudents'>
-                <input
-                    type="checkbox"
-                    className="form-check-input"
-                    name="allSelect"
-                    // checked={
-                    //     students.filter((student) => student?.isChecked !== true).length < 1
-                    // }
-                    checked={!students.some((student) => student?.isChecked !== true)}
-                    onChange={handleChange}
-                />
-                <label>All Select</label>
-
                 <button
                     className='app-navbar-SelectAll'
                     name="allSelect"
-                    checked={!students.some((student) => student?.isChecked !== true)}
-                    onClick={(e) => { handleChange(e) }}
+                    onClick={handleChange}
                 >Select all students</button>
             </div>
 

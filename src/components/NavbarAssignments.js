@@ -1,43 +1,56 @@
-import React, { useState } from 'react';
-import studentData from '../utils/reviewsWincAcademy.json';
-import { getAllReviews } from '../utils/filtersStudentData';
+import React, { useState, useEffect } from 'react';
+import { getAllReviewsAssignments } from '../utils/filtersStudentData';
+
+const allReviewsAssignments = getAllReviewsAssignments();
+console.log(allReviewsAssignments)
 
 const NavbarAssignments = () => {
-    const reviews = getAllReviews();
-    console.log(reviews);
-    // const [difficultOrFun, setDifficultOrFun] = useState({
-    //     showDifficult: true,
-    //     showFun: true,
-    // });
+    const [assignments, setAssignments] = useState([]);
+    const [isAllSelect, setIsAllSelect] = useState(true);
 
-    // hele {} moet nu voldoen aan de string difficulty. 
+    useEffect(() => {
+        setAssignments(allReviewsAssignments);
+    }, []);
 
-    // const handleFilterChange = (e) => {
-    //     if (difficultOrFun === 'difficulty') {
-    //         setDifficultOrFun((!difficultOrFun.showDifficult))
-    //     } else if (difficultOrFun === 'fun') {
-    //         setDifficultOrFun((!difficultOrFun.showFun))
-    //     }
-    // };
-
-    const allAssignments = studentData.reviews.map(review => review.assignment);
-    const assignments = [];
-    allAssignments.forEach(assign => {
-        if (!assignments.includes(assign)) {
-            assignments.push(assign)
+    const handleChange = (e) => {
+        const { name } = e.target;
+        if (name === "allSelect") {
+            setIsAllSelect(!isAllSelect)
+            let tempAssigment = assignments.map((assignment) => {
+                return { ...assignment, isChecked: isAllSelect };
+            });
+            setAssignments(tempAssigment);
+        } else {
+            let tempAssigment = assignments.map((assignment) =>
+                assignment.name === name ? { ...assignment, isChecked: isAllSelect } : assignment
+            );
+            setAssignments(tempAssigment);
         }
-        return assignments;
-    })
+    }
 
     return (
         <nav className='app-navbar navbar-assignment'>
-            <h3>Select or unselect an assignment</h3>
-            <button className='app-navbar-SelectAll'>Select all assignments</button>
 
-            {assignments.map(assignment => (
-                <div>
-                    <input type="checkbox" />
-                    <label>{assignment}</label>
+            <h3>Select or unselect an assignment</h3>
+
+            <div className='AllAssignments'>
+                <button
+                    className='app-navbar-SelectAll'
+                    name="allSelect"
+                    onClick={handleChange}
+                >Select all assignments</button>
+            </div>
+
+            {assignments.map((assignment, index) => (
+                <div className='assignmentCheckbox' key={index}>
+                    <input
+                        type="checkbox"
+                        className="assignmentCheckbox-input"
+                        name={assignment.name}
+                        checked={assignment?.isChecked || false}
+                        onChange={handleChange}
+                    />
+                    <label className='assignmentCheckboxLabels'>{assignment.name}</label>
                 </div>
             ))}
 
