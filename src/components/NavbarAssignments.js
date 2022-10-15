@@ -14,7 +14,7 @@ const NavbarAssignments = () => {
 
     const handleChange = (e) => {
         const { name } = e.target;
-        if (name === "allSelect") {
+        if (name === 'allSelect') {
             setIsAllSelect(!isAllSelect)
             let tempAssigment = assignments.map((assignment) => {
                 return { ...assignment, isChecked: isAllSelect };
@@ -44,8 +44,8 @@ const NavbarAssignments = () => {
             {assignments.map((assignment, index) => (
                 <div className='assignmentCheckbox' key={index}>
                     <input
-                        type="checkbox"
-                        className="assignmentCheckbox-input"
+                        type='checkbox'
+                        className='assignmentCheckbox-input'
                         name={assignment.name}
                         checked={assignment?.isChecked || false}
                         onChange={handleChange}

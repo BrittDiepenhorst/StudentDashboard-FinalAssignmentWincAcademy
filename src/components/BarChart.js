@@ -1,49 +1,8 @@
-// import React, { useState } from "react";
-import {
-    VictoryBar,
-    VictoryChart,
-    // VictoryAxis,
-    // VictoryTheme,
-    // VictoryTooltip,
-    // VictoryLine,
-    // VictoryGroup
-} from "victory";
-
-const Barchart = ({ data }) => {
-
+const Barchart = () => {
     return (
-        <VictoryChart>
-            <VictoryBar
-                data={data}
-
-            />
-
-
-            {/* <VictoryBar
-                style={{ data: { fill: "tomato", width: 25 } }}
-                data={[
-                    { x: "cat", y: 10 },
-                    { x: "dog", y: 25 },
-                    { x: "bird", y: 40 },
-                    { x: "frog", y: 50 },
-                    { x: "fish", y: 50 }
-                ]}
-            />
-            <VictoryAxis />
-            {
-                ["cat", "dog", "bird", "dog", "frog", "fish"].map((d, i) => {
-                    return (
-                        <VictoryAxis dependentAxis
-                            key={i}
-                            label={d}
-                            style={{ tickLabels: { fill: "none" } }}
-                            axisValue={d}
-                        />
-                    );
-                })
-            } */}
-        </VictoryChart>
-
+        <div>
+            <canvas id='studentChart'></canvas>
+        </div>
     )
 }
 export default Barchart;

@@ -1,6 +1,5 @@
 import { getAllStudents } from '../utils/filtersStudentData';
 import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
 
 const studentsData = getAllStudents().studentProfiles;
 
@@ -14,7 +13,7 @@ const NavbarStudents = () => {
 
     const handleChange = (e) => {
         const { name } = e.target;
-        if (name === "allSelect") {
+        if (name === 'allSelect') {
             setIsAllSelect(!isAllSelect)
             let tempStudent = students.map((student) => {
                 return { ...student, isChecked: isAllSelect };
@@ -28,18 +27,6 @@ const NavbarStudents = () => {
         }
     }
 
-    // students.filter(student => student.isChecked).map(student => return student /** hier zijn enkel studenten die gechecked zijn*/)
-    // een 2e array voor enkel de studenten die je mee wilt nemen voor je grafiek kan zeker ja! het is dan wel belangrijk niet te vergeten om studenten er uit te filteren als de checkbox niet aangevinkt is. en vice versa
-
-    // if (e.target.checked == true) {
-    //     const newArray = [{
-    //         name: e.target.value
-    //     }]
-    //     newArray.push(e.target)
-    //     console.log(newArray)
-    // wanneer je op een input  met de checkbox drukt kun je op een nieuwe array pushen met hierbinnen een Object die 2 dingen bevat. naam & of hij mee moet genomen worden in de grafiek. 
-    // met Array.filter kun je daadwerkelijk de data filteren die je wilt hebben. en deze gefilterde array dan in een Victory chart weergeven
-
     return (
         <nav className='app-navbar navbar-students'>
 
@@ -48,7 +35,7 @@ const NavbarStudents = () => {
             <div className='AllStudents'>
                 <button
                     className='app-navbar-SelectAll'
-                    name="allSelect"
+                    name='allSelect'
                     onClick={handleChange}
                 >Select all students</button>
             </div>
@@ -56,8 +43,8 @@ const NavbarStudents = () => {
             {students.map((student, index) => (
                 <div className='studentCheckbox' key={index}>
                     <input
-                        type="checkbox"
-                        className="studentCheckbox-input"
+                        type='checkbox'
+                        className='studentCheckbox-input'
                         name={student.firstName}
                         checked={student?.isChecked || false}
                         onChange={handleChange}
@@ -71,25 +58,22 @@ const NavbarStudents = () => {
 
 export default NavbarStudents;
 
-    // const navigate = useNavigate();
+    // students.filter(student => student.isChecked).map(student => return student /** hier zijn enkel studenten die gechecked zijn*/)
+    // een 2e array voor enkel de studenten die je mee wilt nemen voor je grafiek kan zeker ja! het is dan wel belangrijk niet te vergeten om studenten er uit te filteren als de checkbox niet aangevinkt is. en vice versa
 
-    // const handleAllStudents = (e) => {
-    //     console.log('you clicked')
-    //     if ( === false) {
-    //         setChecked(true)
-    //     }
-    // }
+    // if (e.target.checked == true) {
+    //     const newArray = [{
+    //         name: e.target.value
+    //     }]
+    //     newArray.push(e.target)
+    //     console.log(newArray)
+    // wanneer je op een input  met de checkbox drukt kun je op een nieuwe array pushen met hierbinnen een Object die 2 dingen bevat. naam & of hij mee moet genomen worden in de grafiek. 
+    // met Array.filter kun je daadwerkelijk de data filteren die je wilt hebben. en deze gefilterde array dan in een Victory chart weergeven
 
     // navigate to student pagina:
+    // import { useNavigate } from 'react-router-dom';
+    // const navigate = useNavigate();
     // if (e.target.checked == true) {
     //     console.log('check', e.target, e.target.value)
     //     navigate('students/' + e.target.value)
-    // };
-
-    // const handleChange = (e) => {
-    //     setSongToAdd((prev) => ({
-    //         ...prev,
-    //         [e.target.name]: (e.target.value),
-    //         id: generateUniqueID(),
-    //     }))
     // };

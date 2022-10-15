@@ -15,18 +15,6 @@ export function getStudentByName(studentName) {
     return student;
 }
 
-// export function getStudentByNameArray() {
-//     const allStudents = studentProfilesData.studentProfiles.map(studentProfile => studentProfile.firstName);
-//     console.log(allStudents);
-//     const students = [];
-//     allStudents.forEach(student => {
-//         if (!students.includes(student)) {
-//             students.push(student)
-//         }
-//         return students;
-//     })
-// }
-
 // REVIEWS
 // Array studentReviewsData
 export function getAllReviews() {
@@ -44,18 +32,6 @@ export function getAllReviewsAssignments() {
     console.log(newArray2);
     return newArray2;
 }
-
-// export function getAssignmentsByName() {
-//     const allReviewAssignments = studentReviewsData.map(review => review.assignment);
-//     console.log(allReviewAssignments);
-//     const allAssignments = [];
-//     allReviewAssignments.forEach(assignment => {
-//         if (!allAssignments.includes(assignment)) {
-//             allAssignments.push(assignment)
-//         }
-//         return allAssignments;
-//     })
-// }
 
 // Review name for navigation link to student page
 export function getReviewsByName(studentName) {

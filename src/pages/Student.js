@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { getReviewsByName, getStudentByName } from "../utils/filtersStudentData";
+import { useParams } from 'react-router-dom';
+import { getReviewsByName, getStudentByName } from '../utils/filtersStudentData';
 import Barchart from '../components/Barchart';
 
 const Student = () => {
@@ -12,9 +12,9 @@ const Student = () => {
     return (
         <div>
             <h1>Student: {studentName} {student.lastName}</h1>
-            <div className="studentdetails">
+            <div className='studentdetails'>
                 <h4>Student details</h4>
-                <img src={student.photo} alt="profilephoto" width='50px'></img>
+                <img src={student.photo} alt='profilephoto' width='50px'></img>
                 <p>Age: {student.age} </p>
                 <p>Phone number: {student.phonenumber}</p>
                 <p>Email: {student.email} </p>
