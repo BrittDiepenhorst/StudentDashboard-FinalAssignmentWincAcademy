@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { getReviewsByName, getStudentByName } from '../utils/filtersStudentData';
-import Barchart from '../components/Barchart';
 
 const Student = () => {
     const { studentName } = useParams();

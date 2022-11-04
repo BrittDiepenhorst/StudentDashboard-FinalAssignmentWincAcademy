@@ -1,10 +1,9 @@
-import Barchart from '../components/Barchart';
+// import Barchart from '../components/Barchart';
 
 const Students = () => {
     return (
         <div>
             <h1>Students</h1>
-            <Barchart />
         </div>
     )
 }

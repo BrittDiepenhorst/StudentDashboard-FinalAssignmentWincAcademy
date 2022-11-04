@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header';
 import NavbarStudents from './components/NavbarStudents';
 import NavbarAssignments from './components/NavbarAssignments';
+import Barchart from './components/Barchart';
 import Students from './pages/Students';
 import Student from './pages/Student';
 import Footer from './components/Footer';
@@ -24,6 +25,7 @@ function App() {
           <Route path='students/:studentName' element={<Student />} />
 
         </Routes>
+        <Barchart />
 
         <Footer />
 
