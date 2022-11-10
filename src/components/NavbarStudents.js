@@ -1,9 +1,56 @@
 import { getAllStudents } from '../utils/filtersStudentData';
 import React, { useState, useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { addStudent } from '../actions/index';
 
 const studentsData = getAllStudents().studentProfiles;
 
+// const StudentFilters = ({ value: students, onChange }) => {
+//     const renderedStudents = availableStudents.map((student) => {
+//         const checked = students.includes(student)
+//         const handleChange = () => {
+//             const changeType = checked ? 'removed' : 'added'
+//             onChange(student, changeType)
+//         }
+
+//         return (
+//             <label key={student.firstName}>
+//                 <input
+//                     type="checkbox"
+//                     name={student.firstName}
+//                     checked={checked}
+//                     onChange={handleChange}
+//                 />
+//             </label>
+//         )
+//     })
+
+//     return (
+//         <div className="filters colorFilters">
+//             <h5>Filter by Color</h5>
+//             <form className="colorSelection">{renderedStudents}</form>
+//         </div>
+//     )
+// }
+
 const NavbarStudents = () => {
+    // const dispatch = useDispatch();
+    //     const { students } = useSelector((state) => state.filters)
+
+    //     const onStudentChange = (student, changeType) =>
+    //         dispatch({
+    //             type: 'studentFilterChanged',
+    //             payload: { student, changeType },
+    //         })
+
+    //         return (
+    //             <div>
+    //                 <ColorFilters value={students} onChange={onStudentChange} />
+    //             </div>
+    //         )
+    // }
+
+
     const [students, setStudents] = useState([]);
     const [isAllSelect, setIsAllSelect] = useState(true);
 
@@ -53,10 +100,12 @@ const NavbarStudents = () => {
                 </div>
             ))}
         </nav>
-    );
+    )
 }
 
 export default NavbarStudents;
+
+
 
     // students.filter(student => student.isChecked).map(student => return student /** hier zijn enkel studenten die gechecked zijn*/)
     // een 2e array voor enkel de studenten die je mee wilt nemen voor je grafiek kan zeker ja! het is dan wel belangrijk niet te vergeten om studenten er uit te filteren als de checkbox niet aangevinkt is. en vice versa
@@ -76,4 +125,4 @@ export default NavbarStudents;
     // if (e.target.checked == true) {
     //     console.log('check', e.target, e.target.value)
     //     navigate('students/' + e.target.value)
-    // };
+    // }

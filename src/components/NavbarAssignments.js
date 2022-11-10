@@ -4,6 +4,11 @@ import { getAllReviewsAssignments } from '../utils/filtersStudentData';
 const allReviewsAssignments = getAllReviewsAssignments();
 console.log(allReviewsAssignments)
 
+// export function UseAssignmentHook() {
+//     const [assignments, setAssignments] = useState([]);
+//     return [assignments, setAssignments]
+// }
+
 const NavbarAssignments = () => {
     const [assignments, setAssignments] = useState([]);
     const [isAllSelect, setIsAllSelect] = useState(true);
