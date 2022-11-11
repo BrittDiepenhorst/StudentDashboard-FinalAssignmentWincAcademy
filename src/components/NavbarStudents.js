@@ -1,47 +1,82 @@
 import { getAllStudents } from '../utils/filtersStudentData';
 import React, { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // import { addStudent } from '../actions/index';
 
-const studentsData = getAllStudents().studentProfiles;
+const availableStudents = getAllStudents().studentProfiles;
 
-// const StudentFilters = ({ value: students, onChange }) => {
-//     const renderedStudents = availableStudents.map((student) => {
-//         const checked = students.includes(student)
-//         const handleChange = () => {
-//             const changeType = checked ? 'removed' : 'added'
-//             onChange(student, changeType)
-//         }
+const StudentFilters = ({ value: students, onChange }) => {
+    const renderedStudents = availableStudents.map((student) => {
+        const checked = students.includes(student)
+        const handleChange = () => {
+            const changeType = checked ? 'removed' : 'added'
+            onChange(student, changeType)
+        }
 
-//         return (
-//             <label key={student.firstName}>
-//                 <input
-//                     type="checkbox"
-//                     name={student.firstName}
-//                     checked={checked}
-//                     onChange={handleChange}
-//                 />
-//             </label>
-//         )
-//     })
+        return (
+            <label key={student.firstName}>
+                <input
+                    type="checkbox"
+                    name={student.firstName}
+                    checked={checked}
+                    onChange={handleChange}
+                />
+            </label>
+        )
+    })
 
-//     return (
-//         <div className="filters colorFilters">
-//             <h5>Filter by Color</h5>
-//             <form className="colorSelection">{renderedStudents}</form>
-//         </div>
-//     )
-// }
+    return (
+        <div className="filters studentFilters">
+            <h5>Filter by Student</h5>
+            <form className="colorSelection">{renderedStudents}</form>
+        </div>
+    )
+}
 
 const NavbarStudents = () => {
-    // const dispatch = useDispatch();
-    //     const { students } = useSelector((state) => state.filters)
+    const dispatch = useDispatch();
+    const { students } = useSelector((state) => state.students)
 
-    //     const onStudentChange = (student, changeType) =>
-    //         dispatch({
-    //             type: 'studentFilterChanged',
-    //             payload: { student, changeType },
-    //         })
+    const onStudentChange = (student, changeType) =>
+        dispatch({
+            type: 'studentFilterChanged',
+            payload: { student, changeType },
+        })
+
+    return (
+        <nav className='app-navbar navbar-students'>
+            <h3>Select or unselect a student</h3>
+            <StudentFilters value={students} onChange={onStudentChange} />
+        </nav>
+    )
+
+    // return (
+    //     <nav className='app-navbar navbar-students'>
+
+    //         <h3>Select or unselect a student</h3>
+
+    //         <div className='AllStudents'>
+    //             <button
+    //                 className='app-navbar-SelectAll'
+    //                 name='allSelect'
+    //                 onClick={handleChange}
+    //             >Select all students</button>
+    //         </div>
+
+    //         {students.map((student, index) => (
+    //             <div className='studentCheckbox' key={index}>
+    //                 <input
+    //                     type='checkbox'
+    //                     className='studentCheckbox-input'
+    //                     name={student.firstName}
+    //                     checked={student?.isChecked || false}
+    //                     onChange={handleChange}
+    //                 />
+    //                 <label className='studentCheckboxLabels'>{student.firstName} {student.lastName}</label>
+    //             </div>
+    //         ))}
+    //     </nav>
+    // )
 
     //         return (
     //             <div>
@@ -50,57 +85,29 @@ const NavbarStudents = () => {
     //         )
     // }
 
+    // const [students, setStudents] = useState([]);
+    // const [isAllSelect, setIsAllSelect] = useState(true);
 
-    const [students, setStudents] = useState([]);
-    const [isAllSelect, setIsAllSelect] = useState(true);
+    // useEffect(() => {
+    //     setStudents(availableStudents);
+    // }, []);
 
-    useEffect(() => {
-        setStudents(studentsData);
-    }, []);
+    // const handleChange = (e) => {
+    //     const { name } = e.target;
+    //     if (name === 'allSelect') {
+    //         setIsAllSelect(!isAllSelect)
+    //         let tempStudent = students.map((student) => {
+    //             return { ...student, isChecked: isAllSelect };
+    //         });
+    //         setStudents(tempStudent);
+    //     } else {
+    //         let tempStudent = students.map((student) =>
+    //             student.firstName === name ? { ...student, isChecked: isAllSelect } : student
+    //         );
+    //         setStudents(tempStudent);
+    //     }
+    // }
 
-    const handleChange = (e) => {
-        const { name } = e.target;
-        if (name === 'allSelect') {
-            setIsAllSelect(!isAllSelect)
-            let tempStudent = students.map((student) => {
-                return { ...student, isChecked: isAllSelect };
-            });
-            setStudents(tempStudent);
-        } else {
-            let tempStudent = students.map((student) =>
-                student.firstName === name ? { ...student, isChecked: isAllSelect } : student
-            );
-            setStudents(tempStudent);
-        }
-    }
-
-    return (
-        <nav className='app-navbar navbar-students'>
-
-            <h3>Select or unselect a student</h3>
-
-            <div className='AllStudents'>
-                <button
-                    className='app-navbar-SelectAll'
-                    name='allSelect'
-                    onClick={handleChange}
-                >Select all students</button>
-            </div>
-
-            {students.map((student, index) => (
-                <div className='studentCheckbox' key={index}>
-                    <input
-                        type='checkbox'
-                        className='studentCheckbox-input'
-                        name={student.firstName}
-                        checked={student?.isChecked || false}
-                        onChange={handleChange}
-                    />
-                    <label className='studentCheckboxLabels'>{student.firstName} {student.lastName}</label>
-                </div>
-            ))}
-        </nav>
-    )
 }
 
 export default NavbarStudents;
