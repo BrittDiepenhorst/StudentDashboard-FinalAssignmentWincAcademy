@@ -5,6 +5,13 @@ export const addStudent = (student) => {
     };
 };
 
+export const addAssignment = (assignment) => {
+    return {
+        type: 'assignmentFilterChanged',
+        payload: assignment,
+    }
+}
+
 // export const deleteSong = (id) => {
 //     return {
 //         type: 'DELETESTUDENT',

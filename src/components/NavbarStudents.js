@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const availableStudents = getAllStudents().studentProfiles;
 
-const StudentFilters = ({ value: students, onChange }) => {
+const StudentFilters = ({ value: students, onChange, handleSelectAll }) => {
     const renderedStudents = availableStudents.map((student) => {
         const checked = students.includes(student)
         const handleChange = () => {
@@ -20,15 +20,22 @@ const StudentFilters = ({ value: students, onChange }) => {
                     name={student.firstName}
                     checked={checked}
                     onChange={handleChange}
-                />
+                    className="filters studentFilters"
+                />{student.firstName} {student.lastName}
             </label>
         )
     })
 
     return (
         <div className="filters studentFilters">
-            <h5>Filter by Student</h5>
-            <form className="colorSelection">{renderedStudents}</form>
+            <div className='AllStudents'>
+                <button
+                    className='app-navbar-SelectAll'
+                    name='allSelect'
+                    onClick={handleSelectAll}
+                >Select all students</button>
+            </div>
+            <form className="studentSelection">{renderedStudents}</form>
         </div>
     )
 }
@@ -36,6 +43,34 @@ const StudentFilters = ({ value: students, onChange }) => {
 const NavbarStudents = () => {
     const dispatch = useDispatch();
     const { students } = useSelector((state) => state.students)
+
+    const [isAllSelect, setIsAllSelect] = useState(true);
+
+    // const renderedStudents = availableStudents.map((student) => {
+    //     const checked = students.includes(student)
+    //     const handleChange = () => {
+    //         const changeType = checked ? 'removed' : 'added'
+    //         onStudentChange(student, changeType)
+    //     }
+    // })
+
+    // const checked = students.includes(student)
+    // const changeType = checked ? 'removed' : 'added'
+    // onStudentChange(student, changeType)
+    const handleSelectAll = (e) => {
+        console.log('selected the button All')
+        const { name } = e.target;
+        if (name === 'allSelect') {
+            setIsAllSelect(!isAllSelect)
+            students.map((student) => {
+                return { ...student, isChecked: isAllSelect };
+            });
+        } else {
+            students.map((student) =>
+                student.firstName === name ? { ...student, isChecked: isAllSelect } : student
+            );
+        }
+    }
 
     const onStudentChange = (student, changeType) =>
         dispatch({
@@ -46,7 +81,7 @@ const NavbarStudents = () => {
     return (
         <nav className='app-navbar navbar-students'>
             <h3>Select or unselect a student</h3>
-            <StudentFilters value={students} onChange={onStudentChange} />
+            <StudentFilters value={students} onChange={onStudentChange} handleSelectAll={handleSelectAll} />
         </nav>
     )
 
@@ -77,13 +112,6 @@ const NavbarStudents = () => {
     //         ))}
     //     </nav>
     // )
-
-    //         return (
-    //             <div>
-    //                 <ColorFilters value={students} onChange={onStudentChange} />
-    //             </div>
-    //         )
-    // }
 
     // const [students, setStudents] = useState([]);
     // const [isAllSelect, setIsAllSelect] = useState(true);

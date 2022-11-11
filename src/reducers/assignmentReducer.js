@@ -1,32 +1,32 @@
 const initialState = {
-    students: []
+    assignments: []
 };
 
-console.log(initialState.students)
+console.log(initialState.assignments)
 
-export default function studentReducer(state = initialState, action) {
+export default function assignmentReducer(state = initialState, action) {
     switch (action.type) {
-        case 'studentFilterChanged': {
-            let { student, changeType } = action.payload
-            const { students } = state
+        case 'assignmentFilterChanged': {
+            let { assignment, changeType } = action.payload
+            const { assignments } = state
 
             switch (changeType) {
                 case 'added': {
-                    if (students.includes(student)) {
+                    if (assignments.includes(assignment)) {
                         // This student already is set as a filter. Don't change the state.
                         return state
                     }
 
                     return {
                         ...state,
-                        students: state.students.concat(student),
+                        assignments: state.assignments.concat(assignment),
                     }
                 }
                 case 'removed': {
                     return {
                         ...state,
-                        students: state.students.filter(
-                            (existingStudent) => existingStudent !== student
+                        assignments: state.assignments.filter(
+                            (existingAssignment) => existingAssignment !== assignment
                         ),
                     }
                 }
