@@ -13,7 +13,6 @@ export default function assignmentReducer(state = initialState, action) {
             switch (changeType) {
                 case 'added': {
                     if (assignments.includes(assignment)) {
-                        // This student already is set as a filter. Don't change the state.
                         return state
                     }
 

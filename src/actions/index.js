@@ -1,6 +1,6 @@
 export const addStudent = (student) => {
     return {
-        type: 'studentFilterChanged',
+        type: 'filters/studentFilterChanged',
         payload: student,
     };
 };
@@ -11,10 +11,3 @@ export const addAssignment = (assignment) => {
         payload: assignment,
     }
 }
-
-// export const deleteSong = (id) => {
-//     return {
-//         type: 'DELETESTUDENT',
-//         payload: id,
-//     };
-// };

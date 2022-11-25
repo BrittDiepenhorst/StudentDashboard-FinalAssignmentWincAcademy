@@ -1,19 +1,25 @@
 const initialState = {
-    students: []
+    students: [],
+    checked: false
 };
 
 console.log(initialState.students)
 
 export default function studentReducer(state = initialState, action) {
     switch (action.type) {
-        case 'studentFilterChanged': {
+        case 'filters/checkedFilterChanged': {
+            return {
+                ...state,
+                checked: action.payload,
+            }
+        }
+        case 'filters/studentFilterChanged': {
             let { student, changeType } = action.payload
             const { students } = state
 
             switch (changeType) {
                 case 'added': {
                     if (students.includes(student)) {
-                        // This student already is set as a filter. Don't change the state.
                         return state
                     }
 
