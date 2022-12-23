@@ -53,6 +53,7 @@ const NavbarAssignments = () => {
                 <button
                     className='app-navbar-SelectAll'
                     name='allSelect'
+                    onClick={handleSelectAll}
                 >Select all assignments</button>
             </div>
             <NavbarFilters value={assignments} onChange={onAssignmentChange} />
