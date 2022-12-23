@@ -1,5 +1,6 @@
 const initialState = {
     assignments: [],
+    allAssignments: []
 };
 
 export default function assignmentReducer(state = initialState, action) {

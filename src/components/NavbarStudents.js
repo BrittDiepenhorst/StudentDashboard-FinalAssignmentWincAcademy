@@ -40,7 +40,7 @@ const NavbarStudents = () => {
 
     const handleSelectAll = () =>
         dispatch({
-            type: 'SELECT_ALL_CHECKBOXES',
+            type: 'SELECT_ALL_STUDENTS',
         })
 
     const onStudentChange = (student, changeType) =>

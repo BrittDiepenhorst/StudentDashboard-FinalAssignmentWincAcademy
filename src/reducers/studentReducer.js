@@ -1,5 +1,6 @@
 const initialState = {
     students: [],
+    allStudents: []
 };
 
 export default function studentReducer(state = initialState, action) {

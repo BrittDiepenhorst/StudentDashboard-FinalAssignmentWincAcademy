@@ -37,7 +37,7 @@ const NavbarAssignments = () => {
 
     const handleSelectAll = () =>
         dispatch({
-            type: 'SELECT_ALL_CHECKBOXES'
+            type: 'SELECT_ALL_ASSIGNMENTS'
         })
 
     const onAssignmentChange = (assignment, changeType) =>

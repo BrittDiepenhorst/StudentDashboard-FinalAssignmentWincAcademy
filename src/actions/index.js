@@ -12,8 +12,14 @@ export const addAssignment = (assignment) => {
     };
 };
 
-export function SELECT_ALL_CHECKBOXES() {
+export function SELECT_ALL_STUDENTS() {
     return {
-        type: 'SELECT_ALL_CHECKBOXES',
+        type: 'SELECT_ALL_STUDENTS',
+    };
+}
+
+export function SELECT_ALL_ASSIGNMENTS() {
+    return {
+        type: 'SELECT_ALL_ASSIGNMENTS',
     };
 }
