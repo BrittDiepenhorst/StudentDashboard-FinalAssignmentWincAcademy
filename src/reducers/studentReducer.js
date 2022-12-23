@@ -2,16 +2,9 @@ const initialState = {
     students: [],
 };
 
-console.log(initialState.students)
-
 export default function studentReducer(state = initialState, action) {
     switch (action.type) {
-        case 'checkedFilterChanged': {
-            return {
-                ...state
-            }
-        }
-        case 'studentFilterChanged': {
+        case 'STUDENT_CHECKBOX_CHANGED': {
             let { student, changeType } = action.payload
             const { students } = state
 
@@ -20,7 +13,6 @@ export default function studentReducer(state = initialState, action) {
                     if (students.includes(student)) {
                         return state
                     }
-
                     return {
                         ...state,
                         students: state.students.concat(student),

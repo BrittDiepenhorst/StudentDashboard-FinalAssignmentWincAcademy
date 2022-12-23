@@ -1,28 +1,19 @@
 export const addStudent = (student) => {
     return {
-        type: 'studentFilterChanged',
+        type: 'STUDENT_CHECKBOX_CHANGED',
         payload: student,
-    };
-};
-
-export const checkStudent = () => {
-    return {
-        type: 'checkedFilterChanged',
-        payload: true,
     };
 };
 
 export const addAssignment = (assignment) => {
     return {
-        type: 'assignmentFilterChanged',
+        type: 'ASSIGNMENT_CHECKBOX_CHANGED',
         payload: assignment,
     };
 };
 
-export function toggleCheckbox(id, assignment) {
+export function SELECT_ALL_CHECKBOXES() {
     return {
-        type: 'TOGGLE_CHECKBOX',
-        id,
-        assignment
+        type: 'SELECT_ALL_CHECKBOXES',
     };
 }

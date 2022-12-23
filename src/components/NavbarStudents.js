@@ -40,12 +40,12 @@ const NavbarStudents = () => {
 
     const handleSelectAll = () =>
         dispatch({
-            type: 'checkedFilterChanged',
+            type: 'SELECT_ALL_CHECKBOXES',
         })
 
     const onStudentChange = (student, changeType) =>
         dispatch({
-            type: 'studentFilterChanged',
+            type: 'STUDENT_CHECKBOX_CHANGED',
             payload: { student, changeType },
         })
 
