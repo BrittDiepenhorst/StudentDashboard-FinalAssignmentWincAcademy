@@ -1,8 +1,6 @@
 const initialState = {
-    assignments: []
+    assignments: [],
 };
-
-console.log(initialState.assignments)
 
 export default function assignmentReducer(state = initialState, action) {
     switch (action.type) {
@@ -12,6 +10,16 @@ export default function assignmentReducer(state = initialState, action) {
 
             switch (changeType) {
                 case 'added': {
+                    if (assignments.includes(assignment)) {
+                        return state
+                    }
+
+                    return {
+                        ...state,
+                        assignments: state.assignments.concat(assignment),
+                    }
+                }
+                case 'addedAll': {
                     if (assignments.includes(assignment)) {
                         return state
                     }

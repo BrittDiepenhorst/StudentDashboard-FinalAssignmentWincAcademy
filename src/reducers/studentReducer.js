@@ -1,19 +1,17 @@
 const initialState = {
     students: [],
-    checked: false
 };
 
 console.log(initialState.students)
 
 export default function studentReducer(state = initialState, action) {
     switch (action.type) {
-        case 'filters/checkedFilterChanged': {
+        case 'checkedFilterChanged': {
             return {
-                ...state,
-                checked: action.payload,
+                ...state
             }
         }
-        case 'filters/studentFilterChanged': {
+        case 'studentFilterChanged': {
             let { student, changeType } = action.payload
             const { students } = state
 

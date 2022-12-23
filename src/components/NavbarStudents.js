@@ -20,7 +20,7 @@ const StudentFilters = ({ value: students, onChange }) => {
                     name={student.firstName}
                     checked={checked}
                     onChange={handleChange}
-                    className="filters studentFilters"
+                    className="checkboxdetails"
                 />{student.firstName} {student.lastName}
             </label>
         )
@@ -41,12 +41,11 @@ const NavbarStudents = () => {
     const handleSelectAll = () =>
         dispatch({
             type: 'checkedFilterChanged',
-            payload: { students },
         })
 
     const onStudentChange = (student, changeType) =>
         dispatch({
-            type: 'filters/studentFilterChanged',
+            type: 'studentFilterChanged',
             payload: { student, changeType },
         })
 

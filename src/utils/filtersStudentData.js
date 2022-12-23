@@ -21,15 +21,17 @@ export function getAllReviews() {
     return studentReviewsData;
 }
 
+const createId = () => {
+    return Math.floor(Math.random() * Date.now());
+}
+
 export function getAllReviewsAssignments() {
     let allAssignments = studentReviewsData.reviews.map(review => review.assignment);
     let uniqueAssignments = [...new Set(allAssignments)];
-    console.log(uniqueAssignments)
     const newArray2 = [];
     uniqueAssignments.forEach(assignment => {
-        newArray2.push({ name: assignment })
+        newArray2.push({ name: assignment, id: createId() })
     })
-    console.log(newArray2);
     return newArray2;
 }
 

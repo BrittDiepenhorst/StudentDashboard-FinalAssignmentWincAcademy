@@ -1,59 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { getAllReviewsAssignments } from '../utils/filtersStudentData';
 
 const allReviewsAssignments = getAllReviewsAssignments();
-console.log(allReviewsAssignments)
+
+const NavbarFilters = ({ value: assigments, onChange }) => {
+    const renderedAssigments = allReviewsAssignments.map((assignment) => {
+        const checked = assigments.includes(assignment)
+        const handleChange = () => {
+            const changeType = checked ? 'removed' : 'added'
+            onChange(assignment, changeType)
+        }
+        return (
+            <label key={assignment.name}>
+                <input
+                    type="checkbox"
+                    name={assignment.name}
+                    checked={checked}
+                    onChange={handleChange}
+                    className="assignmentCheckboxLabels"
+                />{assignment.name}
+            </label>
+        )
+    })
+    return (
+        <div className="filters">
+            <form className="assignmentSelection">{renderedAssigments}</form>
+        </div>
+    )
+}
 
 const NavbarAssignments = () => {
-    const [assignments, setAssignments] = useState([]);
-    const [isAllSelect, setIsAllSelect] = useState(true);
+    const dispatch = useDispatch();
+    const { assignments } = useSelector((state) => state.assignments)
 
-    useEffect(() => {
-        setAssignments(allReviewsAssignments);
-    }, []);
+    const handleSelectAll = () =>
+        dispatch({
+            type: 'addedAll'
+        })
 
-    const handleChange = (e) => {
-        const { name } = e.target;
-        if (name === 'allSelect') {
-            setIsAllSelect(!isAllSelect)
-            let tempAssigment = assignments.map((assignment) => {
-                return { ...assignment, isChecked: isAllSelect };
-            });
-            setAssignments(tempAssigment);
-        } else {
-            let tempAssigment = assignments.map((assignment) =>
-                assignment.name === name ? { ...assignment, isChecked: isAllSelect } : assignment
-            );
-            setAssignments(tempAssigment);
-        }
-    }
+    const onAssignmentChange = (assignment, changeType) =>
+        dispatch({
+            type: 'assignmentFilterChanged',
+            payload: { assignment, changeType }
+        })
 
     return (
         <nav className='app-navbar navbar-assignment'>
-
             <h3>Select or unselect an assignment</h3>
-
             <div className='AllAssignments'>
                 <button
                     className='app-navbar-SelectAll'
-                    name="allSelect"
-                    onClick={handleChange}
+                    name='allSelect'
                 >Select all assignments</button>
             </div>
-
-            {assignments.map((assignment, index) => (
-                <div className='assignmentCheckbox' key={index}>
-                    <input
-                        type='checkbox'
-                        className='assignmentCheckbox-input'
-                        name={assignment.name}
-                        checked={assignment?.isChecked || false}
-                        onChange={handleChange}
-                    />
-                    <label className='assignmentCheckboxLabels'>{assignment.name}</label>
-                </div>
-            ))}
-
+            <NavbarFilters value={assignments} onChange={onAssignmentChange} />
         </nav>
     )
 }

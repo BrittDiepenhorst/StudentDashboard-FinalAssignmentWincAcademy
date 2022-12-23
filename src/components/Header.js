@@ -8,6 +8,8 @@ const Header = () => {
                 <img src={logo} alt="logo" width='200px'></img>
             </div>
 
+            <div className='studentpage-button'>Go to student page</div>
+
             <span className='header-title'>
                 <h1>Student dashboard</h1>
             </span>

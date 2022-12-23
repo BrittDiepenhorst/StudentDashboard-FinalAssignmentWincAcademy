@@ -29,6 +29,14 @@ h3 {
     margin-right: auto;
 }
 
+.studentpage-button {
+    background-color: rgb(86, 87, 88);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 50px;
+}
+
 .app-navbar {
     background-color: #D7e8f9;
     color: rgb(86, 87, 88);
@@ -84,7 +92,7 @@ h3 {
 .app-barchart {
     grid-area: barchart;
 }
-
+/* 
 .studentdetails p {
     font-size: 12px;
     margin: 0px;
@@ -92,7 +100,7 @@ h3 {
 
 .studentdetails h4 {
     margin: 0px 0px 5px 0px;
-}
+} */
 
 
 
