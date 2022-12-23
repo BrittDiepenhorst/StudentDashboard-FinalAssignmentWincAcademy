@@ -32,6 +32,9 @@ export default function assignmentReducer(state = initialState, action) {
                     return state
             }
         }
+        case 'SELECT_ALL_ASSIGNMENTS': {
+
+        }
         default:
             return state
     }

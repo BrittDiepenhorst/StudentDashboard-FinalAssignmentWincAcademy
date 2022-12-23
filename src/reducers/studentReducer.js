@@ -31,6 +31,9 @@ export default function studentReducer(state = initialState, action) {
                     return state
             }
         }
+        case 'SELECT_ALL_STUDENTS': {
+
+        }
         default:
             return state
     }

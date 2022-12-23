@@ -12,13 +12,13 @@ export const addAssignment = (assignment) => {
     };
 };
 
-export function SELECT_ALL_STUDENTS() {
+export function selectAllStudents() {
     return {
         type: 'SELECT_ALL_STUDENTS',
     };
 }
 
-export function SELECT_ALL_ASSIGNMENTS() {
+export function selectAllAssignments() {
     return {
         type: 'SELECT_ALL_ASSIGNMENTS',
     };
