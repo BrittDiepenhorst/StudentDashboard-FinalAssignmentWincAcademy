@@ -1,3 +1,5 @@
+import { getAllStudents } from '../utils/filtersStudentData';
+
 const initialState = {
     students: [],
     allStudents: []
@@ -32,7 +34,7 @@ export default function studentReducer(state = initialState, action) {
             }
         }
         case 'SELECT_ALL_STUDENTS': {
-
+            return getAllStudents();
         }
         default:
             return state

@@ -1,3 +1,5 @@
+import { getAllReviewsAssignments } from '../utils/filtersStudentData';
+
 const initialState = {
     assignments: [],
     allAssignments: []
@@ -33,7 +35,7 @@ export default function assignmentReducer(state = initialState, action) {
             }
         }
         case 'SELECT_ALL_ASSIGNMENTS': {
-
+            return getAllReviewsAssignments();
         }
         default:
             return state
