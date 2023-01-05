@@ -7,7 +7,7 @@ const allReviewsAssignments = getAllReviewsAssignments();
 
 const NavbarFilters = ({ value: assigments, onChange }) => {
     const renderedAssigments = allReviewsAssignments.map((assignment) => {
-        const checked = assigments.includes(assignment)
+        const checked = assigments ? assigments.includes(assignment) : true;
         const handleChange = () => {
             const changeType = checked ? 'removed' : 'added'
             onChange(assignment, changeType)

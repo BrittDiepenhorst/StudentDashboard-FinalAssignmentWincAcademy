@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -31,10 +32,12 @@ export const options = {
     },
 };
 
-const labels = [];
+// const { assignments } = useSelector((state) => state.assignments)
+
+// const labels = [];
 
 export const data = {
-    labels,
+    // labels,
     datasets: [
         {
             label: 'Fun',
@@ -59,5 +62,7 @@ export const data = {
 };
 
 export default function Barchart() {
-    return <Bar options={options} data={data} />;
+    const labels = useSelector((state) => state.assignments)
+    console.log(labels)
+    return <Bar options={options} data={data} labels={labels} />;
 }

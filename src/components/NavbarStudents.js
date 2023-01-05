@@ -7,7 +7,7 @@ const availableStudents = getAllStudents().studentProfiles;
 
 const StudentFilters = ({ value: students, onChange }) => {
     const renderedStudents = availableStudents.map((student) => {
-        const checked = students.includes(student)
+        const checked = students ? students.includes(student) : true;
         const handleChange = () => {
             const changeType = checked ? 'removed' : 'added'
             onChange(student, changeType)
