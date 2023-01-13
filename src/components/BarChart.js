@@ -19,50 +19,47 @@ ChartJS.register(
     Legend
 );
 
-export const options = {
-    responsive: true,
-    plugins: {
-        // legend: {
-        //     //   position: 'top' as const,
-        // },
-        title: {
-            display: true,
-            text: 'Student Barchart',
-        },
-    },
-};
-
-// const { assignments } = useSelector((state) => state.assignments)
-
-// const labels = [];
-
-export const data = {
-    // labels,
-    datasets: [
-        {
-            label: 'Fun',
-            // data: statecheckboxonfor
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        },
-        {
-            label: 'Difficult',
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        }
-        // {
-        //   label: 'Dataset 1',
-        //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        //   backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        // },
-        // {
-        //   label: 'Dataset 2',
-        //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        //   backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        // },
-    ],
-};
-
 export default function Barchart() {
     const labels = useSelector((state) => state.assignments)
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Student Barchart',
+            },
+        },
+    };
+
     console.log(labels)
+
+    const data = {
+        datasets: [
+            {
+                label: 'Fun',
+                // data: 
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+            {
+                label: 'Difficult',
+                // data: labels,
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            }
+            // {
+            //   label: 'Dataset 1',
+            //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+            //   backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            // },
+            // {
+            //   label: 'Dataset 2',
+            //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+            //   backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            // },
+        ],
+    };
+
     return <Bar options={options} data={data} labels={labels} />;
 }
