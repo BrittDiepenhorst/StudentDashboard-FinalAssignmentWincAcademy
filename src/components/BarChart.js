@@ -29,7 +29,7 @@ export default function Barchart() {
             },
             title: {
                 display: true,
-                text: 'Student Barchart',
+                text: 'Student Dashboard',
             },
         },
     };

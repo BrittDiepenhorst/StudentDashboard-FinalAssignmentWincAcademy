@@ -6,32 +6,23 @@ import Header from './components/Header';
 import NavbarStudents from './components/NavbarStudents';
 import NavbarAssignments from './components/NavbarAssignments';
 import Barchart from './components/Barchart';
-import Students from './pages/Students';
-import Student from './pages/Student';
 import Footer from './components/Footer';
 
 
 function App() {
   return (
-    <BrowserRouter>
 
-      <div className='container'>
-        <Header />
-        <NavbarStudents />
-        <NavbarAssignments />
-        <Routes>
+    <div className='container'>
+      <Header />
+      <NavbarStudents />
+      <NavbarAssignments />
 
-          <Route path='students' element={<Students />} />
-          <Route path='students/:studentName' element={<Student />} />
+      <Barchart />
 
-        </Routes>
-        <Barchart />
+      <Footer />
 
-        <Footer />
+    </div>
 
-      </div>
-
-    </BrowserRouter>
   );
 }
 
