@@ -17,31 +17,9 @@ const Students = () => {
         <div>
             <h1>Students</h1>
             {renderedStudents}
-            {/* <Link to='/students/:studentName'> </Link> */}
         </div>
 
     )
 }
 
 export default Students;
-
-// const StudentFilters = ({ value: students, onChange }) => {
-//     const renderedStudents = availableStudents.map((student) => {
-//         const checked = students ? students.includes(student) : true;
-//         const handleChange = () => {
-//             const changeType = checked ? 'removed' : 'added'
-//             onChange(student, changeType)
-//         }
-
-//         return (
-//             <label key={student.firstName}>
-//                 <input
-//                     type="checkbox"
-//                     name={student.firstName}
-//                     checked={checked}
-//                     onChange={handleChange}
-//                     className="checkboxdetails"
-//                 />{student.firstName} {student.lastName}
-//             </label>
-//         )
-//     })
