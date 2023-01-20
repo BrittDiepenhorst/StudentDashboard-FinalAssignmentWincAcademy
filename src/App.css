@@ -111,7 +111,9 @@ h3 {
 
 .avatars {
     list-style: none;
+    text-decoration: none;
 }
+
 
 /* 
 .studentdetails p {

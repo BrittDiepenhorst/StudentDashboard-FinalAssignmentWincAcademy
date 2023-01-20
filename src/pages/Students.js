@@ -8,7 +8,7 @@ const Students = () => {
 
         return (
             <ul>
-                <Link to={'/students/' + student.firstName}><li className='avatars' key={student.firstName}> <img src={student.photo} alt='profilephoto' width='50px'></img> {student.firstName} {student.lastName}</li></Link>
+                <Link className='avatars' to={'/students/' + student.firstName}><li key={student.firstName}> <img src={student.photo} alt='profilephoto' width='50px'></img> {student.firstName} {student.lastName}</li></Link>
             </ul>)
 
     })
