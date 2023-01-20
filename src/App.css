@@ -108,6 +108,11 @@ h3 {
 .app-barchart {
     grid-area: barchart;
 }
+
+.avatars {
+    list-style: none;
+}
+
 /* 
 .studentdetails p {
     font-size: 12px;

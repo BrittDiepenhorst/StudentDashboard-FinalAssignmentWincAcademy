@@ -1,8 +1,6 @@
 import logo from '../images/WincAcademy-logo.png'
-import { Routes, Route, Link } from 'react-router-dom';
-import Students from '../pages/Students';
-import Student from '../pages/Student';
-import Barchart from './Barchart';
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
     return (
@@ -21,10 +19,7 @@ const Header = () => {
                     <Link to='/students'> <h4>Students</h4> </Link>
                 </div>
 
-                <Routes>
-                    <Route path='students' element={<Students />} />
-                    <Route path='students/:studentName' element={<Student />} />
-                </Routes>
+
             </div>
 
         </div>

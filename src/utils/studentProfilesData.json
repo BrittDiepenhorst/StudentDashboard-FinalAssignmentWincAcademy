@@ -7,7 +7,7 @@
             "age": "5/4/1956",
             "phonenumber": "+51 996 534 5839",
             "email": "dhulson0@ibm.com",
-            "photo": "https://eu.ui-avatars.com/api/?name=Evelyn+Hulson&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Lucky"
         },
         {
             "id": 2,
@@ -16,7 +16,7 @@
             "age": "2/6/1999",
             "phonenumber": "+57 734 964 2642",
             "email": "aperrycost1@mac.com",
-            "photo": "https://eu.ui-avatars.com/api/?name=Aranka+Perrycost&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Cookie"
         },
         {
             "id": 3,
@@ -25,7 +25,7 @@
             "age": "11/13/1964",
             "phonenumber": "+62 639 522 1788",
             "email": "joloshin2@psu.edu",
-            "photo": "https://eu.ui-avatars.com/api/?name=Floris+Oloshin&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Midnight"
         },
         {
             "id": 4,
@@ -34,7 +34,7 @@
             "age": "3/20/2000",
             "phonenumber": "+86 218 963 0784",
             "email": "bpetrou3@a8.net",
-            "photo": "https://eu.ui-avatars.com/api/?name=Hector+Petrou&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Harley"
         },
         {
             "id": 5,
@@ -43,7 +43,7 @@
             "age": "12/31/2001",
             "phonenumber": "+62 733 910 7148",
             "email": "csaur4@last.fm",
-            "photo": "https://eu.ui-avatars.com/api/?name=Martina+Saur&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Zoe"
         },
         {
             "id": 6,
@@ -52,7 +52,7 @@
             "age": "12/3/1994",
             "phonenumber": "+48 128 404 1323",
             "email": "apabst5@yellowbook.com",
-            "photo": "https://eu.ui-avatars.com/api/?name=Maurits+Pabst&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Jasper"
         },
         {
             "id": 7,
@@ -61,7 +61,7 @@
             "age": "6/2/1993",
             "phonenumber": "+505 762 385 1702",
             "email": "pfrangleton6@cafepress.com",
-            "photo": "https://eu.ui-avatars.com/api/?name=Rahima+Frangleton&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Kitty"
         },
         {
             "id": 8,
@@ -70,7 +70,7 @@
             "age": "9/5/1980",
             "phonenumber": "+1 321 372 9986",
             "email": "thopkynson7@toplist.cz",
-            "photo": "https://eu.ui-avatars.com/api/?name=Sandra+Hopkynson&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Lucy"
         },
         {
             "id": 9,
@@ -79,7 +79,7 @@
             "age": "1/1/1998",
             "phonenumber": "+380 652 852 8212",
             "email": "mallott8@deviantart.com",
-            "photo": "https://eu.ui-avatars.com/api/?name=Wietske+Allott&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Bandit"
         },
         {
             "id": 10,
@@ -88,7 +88,7 @@
             "age": "8/5/1983",
             "phonenumber": "+1 803 854 6688",
             "email": "mharme9@google.it",
-            "photo": "https://eu.ui-avatars.com/api/?name=Storm+Harme&size=150"
+            "photo": "https://api.dicebear.com/5.x/adventurer/svg?seed=Mia"
         }
     ]
 }

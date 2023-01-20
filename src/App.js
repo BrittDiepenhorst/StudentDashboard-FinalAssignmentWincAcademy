@@ -1,13 +1,14 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header';
 import NavbarStudents from './components/NavbarStudents';
 import NavbarAssignments from './components/NavbarAssignments';
-import Barchart from './components/Barchart';
+import Dashboard from './pages/Dashboard';
+import Students from './pages/Students';
+import Student from './pages/Student';
 import Footer from './components/Footer';
-
 
 function App() {
   return (
@@ -17,7 +18,11 @@ function App() {
       <NavbarStudents />
       <NavbarAssignments />
 
-      <Barchart />
+      <Routes>
+        <Route path='/' selement={<Dashboard />} />
+        <Route path='students' element={<Students />} />
+        <Route path='students/:studentName' element={<Student />} />
+      </Routes>
 
       <Footer />
 
