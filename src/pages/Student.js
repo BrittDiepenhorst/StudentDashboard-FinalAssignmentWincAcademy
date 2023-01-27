@@ -21,7 +21,6 @@ const Student = () => {
 
             <pre>{JSON.stringify(student, null, 2)}</pre>
             <pre>{JSON.stringify(reviews, null, 2)}</pre>
-            {/* <Barchart data={reviews} /> */}
         </div>
     );
 };

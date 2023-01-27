@@ -19,8 +19,9 @@ ChartJS.register(
     Legend
 );
 
-export default function Barchart() {
-    const labels = useSelector((state) => state.assignments)
+export default function Dashboard() {
+    const state = useSelector((state) => state.assignments)
+    const assignments = state.assignments
     const options = {
         responsive: true,
         plugins: {
@@ -34,13 +35,17 @@ export default function Barchart() {
         },
     };
 
+    const labels = assignments.map(assigment => { return (assigment.name) })
+
     console.log(labels)
 
     const data = {
+        labels,
         datasets: [
             {
                 label: 'Fun',
-                // data: 
+                data: [],
+
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
@@ -60,6 +65,7 @@ export default function Barchart() {
             // },
         ],
     };
+    console.log(data)
 
     return <Bar options={options} data={data} labels={labels} />;
 }

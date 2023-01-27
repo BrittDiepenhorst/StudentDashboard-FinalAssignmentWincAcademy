@@ -8,6 +8,7 @@ import NavbarAssignments from './components/NavbarAssignments';
 import Dashboard from './pages/Dashboard'
 import Students from './pages/Students';
 import Student from './pages/Student';
+import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/' element={<Dashboard />} />
         <Route path='students' element={<Students />} />
         <Route path='students/:studentName' element={<Student />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
       <Footer />
