@@ -54,33 +54,42 @@ export function getReviewsByName(studentName) {
 export default function CaculateAverage() {
     const reviews = studentReviewsData.reviews;
     const stateAssigment = useSelector((state) => state.assignments)
-    const assignments = stateAssigment.assignments
-    console.log('stateAssigment', stateAssigment.assignments)
+    const assignments = stateAssigment.assignments.map(assignment => assignment.name)
     const stateStudent = useSelector((state) => state.students)
-    console.log('stateStudent', stateStudent.students)
-    const students = stateStudent.students
+    const students = stateStudent.students.map(student => student.firstName)
+    console.log('students', students)
+    console.log('assigments', assignments)
 
     // Define selected students and assignments
-    const selectedStudents = students;
-    const selectedAssignments = assignments;
+    var selectedStudents = students;
+    var selectedAssignments = assignments;
 
     // Filter reviews by selected students and assignments
-    const filteredReviews = reviews.filter(function (review) {
+    var filteredReviews = reviews.filter(function (review) {
         return selectedStudents.indexOf(review.name) !== -1 && selectedAssignments.indexOf(review.assignment) !== -1;
     });
 
     // Calculate average difficulty for filtered reviews
-    const totalDifficulty = filteredReviews.reduce(function (sum, review) {
+    var totalDifficulty = filteredReviews.reduce(function (sum, review) {
         return sum + review.difficulty;
     }, 0);
-    const averageDifficulty = totalDifficulty / filteredReviews.length;
+
+    if (filteredReviews.length > 0) {
+        var averageDifficulty = totalDifficulty / filteredReviews.length;
+        console.log('The average difficulty for selected students and assignments is ' + averageDifficulty);
+    } else {
+        console.log('No reviews found for selected students and assignments');
+    }
 
     // Calculate average fun for filtered reviews
-    const totalFun = filteredReviews.reduce(function (sum, review) {
+    var totalFun = filteredReviews.reduce(function (sum, review) {
         return sum + review.fun;
     }, 0);
-    const averageFun = totalFun / filteredReviews.length;
 
-    console.log('The average difficulty for selected students and assignments is ' + averageDifficulty);
-    console.log('The average fun for selected students and assignments is ' + averageFun);
+    if (filteredReviews.length > 0) {
+        var averageFun = totalFun / filteredReviews.length;
+        console.log('The average fun for selected students and assignments is ' + averageFun);
+    } else {
+        console.log('No reviews found for selected students and assignments');
+    }
 }
