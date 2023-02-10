@@ -27,6 +27,3 @@ const Student = () => {
 
 export default Student;
 
-// data van 1 student 
-// studentName  gebruiken om de volledige dataset te filteren op die naam
-// filter maken als er geklikt wordt op de filter 
