@@ -53,31 +53,33 @@ export function getReviewsByName(studentName) {
 
 export default function CaculateAverage() {
     const reviews = studentReviewsData.reviews;
-    const state = useSelector((state) => state.assignments)
-    const assignments = state.assignments
-    // const state = useSelector((state) => state.students)
-    // const students = state.students
+    const stateAssigment = useSelector((state) => state.assignments)
+    const assignments = stateAssigment.assignments
+    console.log('stateAssigment', stateAssigment.assignments)
+    const stateStudent = useSelector((state) => state.students)
+    console.log('stateStudent', stateStudent.students)
+    const students = stateStudent.students
 
     // Define selected students and assignments
-    var selectedStudents = ['student 1', 'student 3'];
-    var selectedAssignments = assignments;
+    const selectedStudents = students;
+    const selectedAssignments = assignments;
 
     // Filter reviews by selected students and assignments
-    var filteredReviews = reviews.filter(function (review) {
-        return selectedStudents.indexOf(review.student) !== -1 && selectedAssignments.indexOf(review.assignment) !== -1;
+    const filteredReviews = reviews.filter(function (review) {
+        return selectedStudents.indexOf(review.name) !== -1 && selectedAssignments.indexOf(review.assignment) !== -1;
     });
 
     // Calculate average difficulty for filtered reviews
-    var totalDifficulty = filteredReviews.reduce(function (sum, review) {
+    const totalDifficulty = filteredReviews.reduce(function (sum, review) {
         return sum + review.difficulty;
     }, 0);
-    var averageDifficulty = totalDifficulty / filteredReviews.length;
+    const averageDifficulty = totalDifficulty / filteredReviews.length;
 
     // Calculate average fun for filtered reviews
-    var totalFun = filteredReviews.reduce(function (sum, review) {
+    const totalFun = filteredReviews.reduce(function (sum, review) {
         return sum + review.fun;
     }, 0);
-    var averageFun = totalFun / filteredReviews.length;
+    const averageFun = totalFun / filteredReviews.length;
 
     console.log('The average difficulty for selected students and assignments is ' + averageDifficulty);
     console.log('The average fun for selected students and assignments is ' + averageFun);
