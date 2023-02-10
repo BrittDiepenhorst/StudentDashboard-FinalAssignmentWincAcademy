@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import CaculateAverage from '../utils/filtersStudentData'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -19,6 +20,7 @@ ChartJS.register(
     Legend
 );
 
+
 export default function Dashboard() {
     const state = useSelector((state) => state.assignments)
     const assignments = state.assignments
@@ -36,8 +38,9 @@ export default function Dashboard() {
     };
 
     const labels = assignments.map(assigment => { return (assigment.name) })
-
     console.log(labels)
+
+    CaculateAverage()
 
     const data = {
         labels,

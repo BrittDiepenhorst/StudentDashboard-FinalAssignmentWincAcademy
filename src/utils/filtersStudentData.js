@@ -1,5 +1,6 @@
 import studentReviewsData from './reviewsWincAcademy.json';
 import studentProfilesData from './studentProfilesData.json';
+import { useSelector } from 'react-redux';
 
 // STUDENTS
 // Array studentProfilesData
@@ -50,30 +51,34 @@ export function getReviewsByName(studentName) {
 //     return reviewsByAssignment;
 // }
 
-// Group reviews by assignment
-const reviews = studentReviewsData.reviews;
-var groupedReviews = reviews.reduce(function (grouped, review) {
-    if (!grouped[review.assignment]) {
-        grouped[review.assignment] = [];
-    }
-    grouped[review.assignment].push(review);
-    return grouped;
-}, {});
+export default function CaculateAverage() {
+    const reviews = studentReviewsData.reviews;
+    const state = useSelector((state) => state.assignments)
+    const assignments = state.assignments
+    // const state = useSelector((state) => state.students)
+    // const students = state.students
 
-// Calculate average difficulty per assignment
-for (var assignment in groupedReviews) {
-    var totalDifficulty = groupedReviews[assignment].reduce(function (sum, review) {
+    // Define selected students and assignments
+    var selectedStudents = ['student 1', 'student 3'];
+    var selectedAssignments = assignments;
+
+    // Filter reviews by selected students and assignments
+    var filteredReviews = reviews.filter(function (review) {
+        return selectedStudents.indexOf(review.student) !== -1 && selectedAssignments.indexOf(review.assignment) !== -1;
+    });
+
+    // Calculate average difficulty for filtered reviews
+    var totalDifficulty = filteredReviews.reduce(function (sum, review) {
         return sum + review.difficulty;
     }, 0);
-    var averageDifficulty = totalDifficulty / groupedReviews[assignment].length;
-    console.log('The average difficulty for ' + assignment + ' is ' + averageDifficulty);
-}
+    var averageDifficulty = totalDifficulty / filteredReviews.length;
 
-// Calculate average fun per assignment
-for (var assignment in groupedReviews) {
-    var totalFun = groupedReviews[assignment].reduce(function (sum, review) {
+    // Calculate average fun for filtered reviews
+    var totalFun = filteredReviews.reduce(function (sum, review) {
         return sum + review.fun;
     }, 0);
-    var averageFun = totalFun / groupedReviews[assignment].length;
-    console.log('The average fun for ' + assignment + ' is ' + averageFun);
+    var averageFun = totalFun / filteredReviews.length;
+
+    console.log('The average difficulty for selected students and assignments is ' + averageDifficulty);
+    console.log('The average fun for selected students and assignments is ' + averageFun);
 }

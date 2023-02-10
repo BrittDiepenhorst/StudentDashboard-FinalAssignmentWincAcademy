@@ -115,18 +115,6 @@ h3 {
 }
 
 
-/* 
-.studentdetails p {
-    font-size: 12px;
-    margin: 0px;
-}
-
-.studentdetails h4 {
-    margin: 0px 0px 5px 0px;
-} */
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 .app-footer{
     grid-area: footer;
