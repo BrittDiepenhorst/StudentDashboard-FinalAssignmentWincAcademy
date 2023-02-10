@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import CaculateAverage from '../utils/filtersStudentData'
+import CalculateAverages from '../utils/filtersStudentData';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -37,35 +37,26 @@ export default function Dashboard() {
         },
     };
 
+    const averages = CalculateAverages();
+    const averageDifficulty = averages.averageDifficulty;
+    const averageFun = averages.averageFun;
+
     const labels = assignments.map(assigment => { return (assigment.name) })
     console.log(labels)
-
-    CaculateAverage()
 
     const data = {
         labels,
         datasets: [
             {
                 label: 'Fun',
-                data: [],
-
+                data: averageFun,
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
                 label: 'Difficult',
-                data: [],
+                data: averageDifficulty,
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             }
-            // {
-            //   label: 'Dataset 1',
-            //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-            //   backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            // },
-            // {
-            //   label: 'Dataset 2',
-            //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-            //   backgroundColor: 'rgba(53, 162, 235, 0.5)',
-            // },
         ],
     };
     console.log(data)

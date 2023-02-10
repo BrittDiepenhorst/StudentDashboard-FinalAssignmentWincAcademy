@@ -51,7 +51,7 @@ export function getReviewsByName(studentName) {
 //     return reviewsByAssignment;
 // }
 
-export default function CaculateAverage() {
+export default function CaculateAverages() {
     const reviews = studentReviewsData.reviews;
     const stateAssigment = useSelector((state) => state.assignments)
     const assignments = stateAssigment.assignments.map(assignment => assignment.name)
@@ -66,12 +66,12 @@ export default function CaculateAverage() {
 
     // Filter reviews by selected students and assignments
     var filteredReviews = reviews.filter(function (review) {
-        return selectedStudents.indexOf(review.name) !== -1 && selectedAssignments.indexOf(review.assignment) !== -1;
+        return selectedStudents.includes(review.name) && selectedAssignments.includes(review.assignment);
     });
 
     // Calculate average difficulty for filtered reviews
     var totalDifficulty = filteredReviews.reduce(function (sum, review) {
-        return sum + review.difficulty;
+        return sum + parseInt(review.difficulty, 10);
     }, 0);
 
     if (filteredReviews.length > 0) {
@@ -83,7 +83,7 @@ export default function CaculateAverage() {
 
     // Calculate average fun for filtered reviews
     var totalFun = filteredReviews.reduce(function (sum, review) {
-        return sum + review.fun;
+        return sum + parseInt(review.fun, 10);
     }, 0);
 
     if (filteredReviews.length > 0) {
@@ -92,4 +92,6 @@ export default function CaculateAverage() {
     } else {
         console.log('No reviews found for selected students and assignments');
     }
+
+    return { averageDifficulty, averageFun };
 }
