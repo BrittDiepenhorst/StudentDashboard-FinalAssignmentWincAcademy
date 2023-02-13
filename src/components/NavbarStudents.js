@@ -35,13 +35,13 @@ const StudentFilters = ({ value: students, onChange }) => {
 
 const NavbarStudents = () => {
     const dispatch = useDispatch();
-
     const { students } = useSelector((state) => state.students)
 
-    const handleSelectAll = () =>
+    const handleSelectAll = () => {
         dispatch({
             type: 'SELECT_ALL_STUDENTS',
         })
+    }
 
     const onStudentChange = (student, changeType) =>
         dispatch({

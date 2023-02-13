@@ -41,8 +41,8 @@ export default function Dashboard() {
     const assignments = state.assignments
     const labels = assignments.map(assigment => { return (assigment.name) })
 
-    // data (now 1, 2, 3, 4, 5) -> averageDifficulty & averageFun
-    // data should match the assignment 
+    // data (is now 1, 2, 3, 4, 5) -> should be averageDifficulty & averageFun for each assignment that is selected and this should match the student(s) selected
+    // data (in the labels) should match the average data in the y-as
 
     const data = {
         labels,

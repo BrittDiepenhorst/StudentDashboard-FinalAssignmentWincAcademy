@@ -18,8 +18,20 @@ export function selectAllStudents() {
     };
 }
 
+export function selectAllStudents() {
+    return {
+        type: 'UNSELECT_ALL_STUDENTS',
+    };
+}
+
 export function selectAllAssignments() {
     return {
         type: 'SELECT_ALL_ASSIGNMENTS',
+    };
+}
+
+export function unselectAllAssignments() {
+    return {
+        type: 'UNSELECT_ALL_ASSIGNMENTS',
     };
 }

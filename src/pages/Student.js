@@ -23,9 +23,7 @@ ChartJS.register(
 
 const Student = () => {
     const { studentName } = useParams();
-    console.log(studentName);
     const student = getStudentByName(studentName);
-    console.log(student)
     const reviews = getReviewsByName(studentName);
 
 

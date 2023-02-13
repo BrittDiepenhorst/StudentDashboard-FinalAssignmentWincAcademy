@@ -35,10 +35,11 @@ const NavbarAssignments = () => {
     const dispatch = useDispatch();
     const { assignments } = useSelector((state) => state.assignments)
 
-    const handleSelectAll = () =>
+    const handleSelectAll = () => {
         dispatch({
-            type: 'SELECT_ALL_ASSIGNMENTS'
+            type: 'SELECT_ALL_ASSIGNMENTS',
         })
+    }
 
     const onAssignmentChange = (assignment, changeType) =>
         dispatch({
