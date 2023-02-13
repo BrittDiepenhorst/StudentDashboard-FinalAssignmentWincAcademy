@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import CaculateAverages from '../utils/filtersStudentData';
+// import CaculateAverages from '../utils/filtersStudentData';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -33,26 +33,15 @@ export default function Dashboard() {
         },
     };
 
-    const averages = CaculateAverages();
-    const averageDifficulty = averages.averageDifficulty;
-    const averageFun = averages.averageFun;
-
-    const [averageDifficultyState, setAverageDifficulty] = useState(averageDifficulty);
-    const [averageFunState, setAverageFun] = useState(averageFun);
-
-    console.log(averageFunState)
-
-    useEffect(() => {
-        // const averages = CaculateAverages();
-        setAverageDifficulty(averages.averageDifficulty);
-        setAverageFun(averages.averageFun);
-    }, []);
+    // const averages = CaculateAverages();
+    // const averageDifficulty = averages.averageDifficulty;
+    // const averageFun = averages.averageFun;
 
     const state = useSelector((state) => state.assignments)
     const assignments = state.assignments
     const labels = assignments.map(assigment => { return (assigment.name) })
 
-    // data (now 1, 2, 3, 4, 5) -> averageDifficultyState & averageFunState
+    // data (now 1, 2, 3, 4, 5) -> averageDifficulty & averageFun
     // data should match the assignment 
 
     const data = {

@@ -1,5 +1,6 @@
 import studentReviewsData from './reviewsWincAcademy.json';
 import studentProfilesData from './studentProfilesData.json';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 // STUDENTS
@@ -44,13 +45,7 @@ export function getReviewsByName(studentName) {
     return reviewsByName;
 }
 
-// export function getReviewsByAssignment(assignmentName) {
-//     let reviewsByAssignment = studentReviewsData.reviews.filter(
-//         (review) => review.assignment === assignmentName
-//     );
-//     return reviewsByAssignment;
-// }
-
+// AVERAGE 
 export default function CaculateAverages() {
     const reviews = studentReviewsData.reviews;
     const stateAssigment = useSelector((state) => state.assignments)
@@ -61,6 +56,13 @@ export default function CaculateAverages() {
     // Define selected students and assignments
     var selectedStudents = students;
     var selectedAssignments = assignments;
+
+    // Use state to store averages and assigments
+    // const [selectedAssignment, setSelectedAssignment] = useState({
+    //     assignment: '',
+    //     averageDifficultyAssignment: 0,
+    //     averageFunAssignment: 0,
+    // })
 
     // Filter reviews by selected students and assignments
     var filteredReviews = reviews.filter(function (review) {
@@ -74,7 +76,7 @@ export default function CaculateAverages() {
 
     if (filteredReviews.length > 0) {
         var averageDifficulty = totalDifficulty / filteredReviews.length;
-        console.log('The average difficulty for selected students and assignments is ' + averageDifficulty);
+        console.log('The average difficulty for selected students ' + selectedStudents + 'and assignments ' + selectedAssignments + 'is ' + averageDifficulty);
     } else {
         console.log('No reviews found for selected students and assignments');
     }
@@ -90,6 +92,4 @@ export default function CaculateAverages() {
     } else {
         console.log('No reviews found for selected students and assignments');
     }
-
-    return { averageDifficulty, averageFun };
 }
