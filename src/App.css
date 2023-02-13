@@ -12,6 +12,10 @@ h3 {
     margin: 0px;
 }
 
+p {
+    margin: 0;
+}
+
 .app-header {
     grid-area: header;
     display: flex;

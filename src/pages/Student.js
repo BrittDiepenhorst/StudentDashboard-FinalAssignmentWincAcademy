@@ -71,7 +71,7 @@ const Student = () => {
                 <p>Email: {student.email} </p>
             </div>
 
-            <Bar options={options} data={data} />;
+            <Bar options={options} data={data} />
 
         </div>
     );
