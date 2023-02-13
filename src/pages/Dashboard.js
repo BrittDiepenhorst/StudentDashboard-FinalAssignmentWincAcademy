@@ -1,5 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import CalculateAverages from '../utils/filtersStudentData';
+import CaculateAverages from '../utils/filtersStudentData';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -20,46 +21,55 @@ ChartJS.register(
     Legend
 );
 
-
 export default function Dashboard() {
-    const state = useSelector((state) => state.assignments)
-    const assignments = state.assignments
     const options = {
         responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Student Dashboard',
-            },
+        title: {
+            display: true,
+            text: 'Student Dashboard',
+        },
+        legend: {
+            position: 'top',
         },
     };
 
-    const averages = CalculateAverages();
+    const averages = CaculateAverages();
     const averageDifficulty = averages.averageDifficulty;
     const averageFun = averages.averageFun;
 
+    const [averageDifficultyState, setAverageDifficulty] = useState(averageDifficulty);
+    const [averageFunState, setAverageFun] = useState(averageFun);
+
+    console.log(averageFunState)
+
+    useEffect(() => {
+        // const averages = CaculateAverages();
+        setAverageDifficulty(averages.averageDifficulty);
+        setAverageFun(averages.averageFun);
+    }, []);
+
+    const state = useSelector((state) => state.assignments)
+    const assignments = state.assignments
     const labels = assignments.map(assigment => { return (assigment.name) })
-    console.log(labels)
+
+    // data (now 1, 2, 3, 4, 5) -> averageDifficultyState & averageFunState
+    // data should match the assignment 
 
     const data = {
         labels,
         datasets: [
             {
                 label: 'Fun',
-                data: averageFun,
+                data: [1, 2, 3, 4, 5],
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
                 label: 'Difficult',
-                data: averageDifficulty,
+                data: [1, 2, 3, 4, 5],
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             }
         ],
     };
-    console.log(data)
 
-    return <Bar options={options} data={data} labels={labels} />;
+    return <Bar options={options} data={data} />;
 }

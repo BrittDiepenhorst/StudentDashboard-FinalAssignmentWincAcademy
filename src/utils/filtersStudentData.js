@@ -57,8 +57,6 @@ export default function CaculateAverages() {
     const assignments = stateAssigment.assignments.map(assignment => assignment.name)
     const stateStudent = useSelector((state) => state.students)
     const students = stateStudent.students.map(student => student.firstName)
-    console.log('students', students)
-    console.log('assigments', assignments)
 
     // Define selected students and assignments
     var selectedStudents = students;
