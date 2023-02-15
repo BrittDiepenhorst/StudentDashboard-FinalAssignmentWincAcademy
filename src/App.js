@@ -2,8 +2,6 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-import NavbarStudents from './components/NavbarStudents';
-import NavbarAssignments from './components/NavbarAssignments';
 import Dashboard from './pages/Dashboard'
 import Students from './pages/Students';
 import Student from './pages/Student';
@@ -15,8 +13,6 @@ function App() {
 
     <div className='container'>
       <Header />
-      <NavbarStudents />
-      <NavbarAssignments />
 
       <Routes>
         <Route path='/' element={<Dashboard />} />

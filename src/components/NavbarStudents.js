@@ -33,14 +33,35 @@ const StudentFilters = ({ value: students, onChange }) => {
     )
 }
 
+const onFilterChange = (input) => { let { value, checked } = input.target; }
+
 const NavbarStudents = () => {
     const dispatch = useDispatch();
     const { students } = useSelector((state) => state.students)
 
     const handleSelectAll = () => {
-        dispatch({
-            type: 'SELECT_ALL_STUDENTS',
+
+        let states = [];
+        [...document.querySelectorAll('.checkboxdetails')].map((input) => {
+            if (input.checked) {
+                let fakeInput = {
+                    target: {
+                        value: input.value,
+                        checked: false
+                    }
+                }
+                input.checked = !input.checked;
+                onFilterChange(fakeInput);
+                states.push(1);
+            }
+            return null;
         })
+
+        if (states.length <= 0) {
+            dispatch({
+                type: 'SELECT_ALL_STUDENTS',
+            })
+        }
     }
 
     const onStudentChange = (student, changeType) =>

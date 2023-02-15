@@ -118,6 +118,20 @@ p {
     text-decoration: none;
 }
 
+.studentpage {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.studentpage div {
+    margin-left: 10px;
+}
+
+.studentpage h1 {
+    margin-left: 10px;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 .app-footer{

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import NavbarStudents from './../components/NavbarStudents';
+import NavbarAssignments from './../components/NavbarAssignments';
 // import CaculateAverages from '../utils/filtersStudentData';
 import {
     Chart as ChartJS,
@@ -60,5 +62,11 @@ export default function Dashboard() {
         ],
     };
 
-    return <Bar options={options} data={data} />;
+    return (
+        <>
+            <NavbarStudents />
+            <NavbarAssignments />
+            <Bar options={options} data={data} />
+        </>
+    )
 }

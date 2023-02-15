@@ -59,7 +59,7 @@ const Student = () => {
     };
 
     return (
-        <div>
+        <div className='studentpage'>
             <h1>Student: {studentName} {student.lastName}</h1>
             <div className='studentdetails'>
                 <h4>Student details</h4>
