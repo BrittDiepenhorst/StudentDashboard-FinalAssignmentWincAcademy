@@ -7,8 +7,8 @@ const Students = () => {
     const renderedStudents = availableStudents.map((student) => {
 
         return (
-            <ul>
-                <Link className='avatars' to={'/students/' + student.firstName}><li key={student.id}> <img src={student.photo} alt='profilephoto' width='50px'></img> {student.firstName} {student.lastName}</li></Link>
+            <ul key={student.id} >
+                <Link className='avatars' to={'/students/' + student.firstName}><li> <img src={student.photo} alt='profilephoto' width='50px'></img> {student.firstName} {student.lastName}</li></Link>
             </ul>)
 
     })
