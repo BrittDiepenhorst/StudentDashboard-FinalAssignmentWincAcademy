@@ -14,7 +14,7 @@ const StudentFilters = ({ value: students, onChange }) => {
         }
 
         return (
-            <label key={student.firstName}>
+            <label key={student.id}>
                 <input
                     type="checkbox"
                     name={student.firstName}

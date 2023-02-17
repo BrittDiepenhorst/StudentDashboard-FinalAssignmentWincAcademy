@@ -60,13 +60,12 @@ const Student = () => {
 
     return (
         <div className='studentpage'>
-            <h1>{studentName} {student.lastName}</h1>
             <div className='studentdetails'>
-                <h4>Student details</h4>
-                <img src={student.photo} alt='profilephoto' width='50px'></img>
-                <p>Age: {student.age} </p>
-                <p>Phone number: {student.phonenumber}</p>
-                <p>Email: {student.email} </p>
+                <div className='studentdetails-img-title'>
+                    <img src={student.photo} alt='profilephoto' width='50px'></img>
+                    <h1>{studentName} {student.lastName} </h1>
+                </div>
+                <p> <b>Age:</b> {student.age} <b>Phone number:</b> {student.phonenumber} <b>Email:</b> {student.email}</p>
             </div>
 
             <Bar options={options} data={data} />
