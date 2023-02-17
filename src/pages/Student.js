@@ -60,7 +60,7 @@ const Student = () => {
 
     return (
         <div className='studentpage'>
-            <h1>Student: {studentName} {student.lastName}</h1>
+            <h1>{studentName} {student.lastName}</h1>
             <div className='studentdetails'>
                 <h4>Student details</h4>
                 <img src={student.photo} alt='profilephoto' width='50px'></img>
