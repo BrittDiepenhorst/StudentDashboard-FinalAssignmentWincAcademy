@@ -7,7 +7,6 @@ const availableStudents = getAllStudents().studentProfiles;
 const StudentFilters = ({ value: students, onChange }) => {
     const renderedStudents = availableStudents.map((student) => {
         const checked = students ? students.includes(student) : true;
-        console.log(checked)
         const handleChange = () => {
             const changeType = checked ? 'removed' : 'added'
             onChange(student, changeType)
@@ -35,7 +34,6 @@ const StudentFilters = ({ value: students, onChange }) => {
 const NavbarStudents = () => {
     const dispatch = useDispatch();
     const { students } = useSelector((state) => state.students)
-    console.log(students)
 
     const handleSelectAll = (event) => {
         const checkboxes = document.querySelectorAll('.checkboxstudents');

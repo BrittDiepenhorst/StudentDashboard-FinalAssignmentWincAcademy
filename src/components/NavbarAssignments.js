@@ -1,10 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { getAllReviewsAssignments } from '../utils/filtersStudentData';
 
 const allReviewsAssignments = getAllReviewsAssignments();
-console.log(allReviewsAssignments)
 
 const AssignmentFilters = ({ value: assigments, onChange }) => {
     const renderedAssignments = allReviewsAssignments.map((assignment) => {
@@ -49,7 +47,7 @@ const NavbarAssignments = () => {
         });
         checkboxes.forEach((checkbox) => {
             checkbox.checked = isChecked;
-        })
+        });
     };
 
     const onAssignmentChange = (assignment, changeType) =>
