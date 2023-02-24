@@ -6,7 +6,7 @@ const allReviewsAssignments = getAllReviewsAssignments();
 
 const AssignmentFilters = ({ value: assigments, onChange }) => {
     const renderedAssignments = allReviewsAssignments.map((assignment) => {
-        const checked = assigments ? assigments.includes(assignment) : true;
+        const checked = assigments ? assigments.includes(assignment) : null;
         const handleChange = () => {
             const changeType = checked ? 'removed' : 'added'
             onChange(assignment, changeType)
