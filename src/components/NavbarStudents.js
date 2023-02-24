@@ -37,10 +37,6 @@ const NavbarStudents = () => {
     const { students } = useSelector((state) => state.students)
     console.log(students)
 
-    // const renderedStudents = availableStudents.map((student) => {
-    //     const checked = students ? students.includes(student) : true;
-    // })
-
     const handleSelectAll = (event) => {
         const checkboxes = document.querySelectorAll('.checkboxstudents');
         const isChecked = !event.target.checked;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getAllReviewsAssignments } from '../utils/filtersStudentData';
@@ -21,7 +21,7 @@ const AssignmentFilters = ({ value: assigments, onChange }) => {
                     name={assignment.name}
                     checked={checked}
                     onChange={handleChange}
-                    className="checkboxdetails"
+                    className="checkboxdetails checkboxassignments"
                 />{assignment.name}
             </label>
         )
@@ -33,8 +33,6 @@ const AssignmentFilters = ({ value: assigments, onChange }) => {
     )
 }
 
-// const onFilterChange = (input) => { let { value, checked } = input.target; }
-
 const NavbarAssignments = () => {
 
     const dispatch = useDispatch();
@@ -44,17 +42,7 @@ const NavbarAssignments = () => {
         const checkboxes = document.querySelectorAll('.checkboxdetails');
         checkboxes.forEach((checkbox) => {
             checkbox.checked = true;
-            //     const fakeInput = {
-            //         target: {
-            //             value: checkbox.value,
-            //             checked: true,
-            //         },
-            //     };
-            //     onFilterChange(fakeInput);
         });
-
-        // console.log(event.target)
-        // const { id, checked } = event.target;
 
         dispatch({
             type: 'SELECT_ALL_ASSIGNMENTS',

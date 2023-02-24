@@ -17,22 +17,11 @@ export function selectAllStudents(availableStudents) {
         type: 'SELECT_ALL_STUDENTS',
         payload: availableStudents,
     };
-}
-
-// export function selectAllStudents() {
-//     return {
-//         type: 'UNSELECT_ALL_STUDENTS',
-//     };
-// }
+};
 
 export function selectAllAssignments() {
     return {
         type: 'SELECT_ALL_ASSIGNMENTS',
+        payload: assignments,
     };
-}
-
-// export function unselectAllAssignments() {
-//     return {
-//         type: 'UNSELECT_ALL_ASSIGNMENTS',
-//     };
-// }
+};

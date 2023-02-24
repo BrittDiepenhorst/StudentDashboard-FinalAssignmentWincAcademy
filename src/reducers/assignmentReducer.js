@@ -1,5 +1,3 @@
-import { getAllReviewsAssignments } from '../utils/filtersStudentData';
-
 const initialState = {
     assignments: [],
     selectAll: false,
