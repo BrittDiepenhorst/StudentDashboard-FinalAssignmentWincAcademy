@@ -34,19 +34,22 @@ const AssignmentFilters = ({ value: assigments, onChange }) => {
 }
 
 const NavbarAssignments = () => {
-
     const dispatch = useDispatch();
     const { assignments } = useSelector((state) => state.assignments)
 
     const handleSelectAll = (event) => {
-        const checkboxes = document.querySelectorAll('.checkboxdetails');
-        checkboxes.forEach((checkbox) => {
-            checkbox.checked = true;
-        });
+        const checkboxes = document.querySelectorAll('.checkboxassignments');
+        const isChecked = !event.target.checked;
+
+        const allReviewsAssignments = getAllReviewsAssignments();
 
         dispatch({
             type: 'SELECT_ALL_ASSIGNMENTS',
+            payload: allReviewsAssignments,
         });
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = isChecked;
+        })
     };
 
     const onAssignmentChange = (assignment, changeType) =>
