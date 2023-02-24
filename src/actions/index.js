@@ -12,17 +12,18 @@ export const addAssignment = (assignment) => {
     };
 };
 
-export function selectAllStudents() {
+export function selectAllStudents(availableStudents) {
     return {
         type: 'SELECT_ALL_STUDENTS',
+        payload: availableStudents,
     };
 }
 
-export function selectAllStudents() {
-    return {
-        type: 'UNSELECT_ALL_STUDENTS',
-    };
-}
+// export function selectAllStudents() {
+//     return {
+//         type: 'UNSELECT_ALL_STUDENTS',
+//     };
+// }
 
 export function selectAllAssignments() {
     return {
@@ -30,8 +31,8 @@ export function selectAllAssignments() {
     };
 }
 
-export function unselectAllAssignments() {
-    return {
-        type: 'UNSELECT_ALL_ASSIGNMENTS',
-    };
-}
+// export function unselectAllAssignments() {
+//     return {
+//         type: 'UNSELECT_ALL_ASSIGNMENTS',
+//     };
+// }

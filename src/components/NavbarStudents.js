@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { getAllStudents } from '../utils/filtersStudentData';
 
 const availableStudents = getAllStudents().studentProfiles;
@@ -8,11 +7,11 @@ const availableStudents = getAllStudents().studentProfiles;
 const StudentFilters = ({ value: students, onChange }) => {
     const renderedStudents = availableStudents.map((student) => {
         const checked = students ? students.includes(student) : true;
+        console.log(checked)
         const handleChange = () => {
             const changeType = checked ? 'removed' : 'added'
             onChange(student, changeType)
         }
-
         return (
             <label key={student.id}>
                 <input
@@ -20,7 +19,7 @@ const StudentFilters = ({ value: students, onChange }) => {
                     name={student.firstName}
                     checked={checked}
                     onChange={handleChange}
-                    className="checkboxdetails"
+                    className="checkboxdetails checkboxstudents"
                 />{student.firstName} {student.lastName}
             </label>
         )
@@ -33,36 +32,30 @@ const StudentFilters = ({ value: students, onChange }) => {
     )
 }
 
-const onFilterChange = (input) => { let { value, checked } = input.target; }
-
 const NavbarStudents = () => {
     const dispatch = useDispatch();
     const { students } = useSelector((state) => state.students)
+    console.log(students)
 
-    const handleSelectAll = () => {
+    // const renderedStudents = availableStudents.map((student) => {
+    //     const checked = students ? students.includes(student) : true;
+    // })
 
-        let states = [];
-        [...document.querySelectorAll('.checkboxdetails')].map((input) => {
-            if (input.checked) {
-                let fakeInput = {
-                    target: {
-                        value: input.value,
-                        checked: false
-                    }
-                }
-                input.checked = !input.checked;
-                onFilterChange(fakeInput);
-                states.push(1);
-            }
-            return null;
-        })
+    const handleSelectAll = (event) => {
+        const checkboxes = document.querySelectorAll('.checkboxstudents');
+        const isChecked = !event.target.checked;
 
-        if (states.length <= 0) {
-            dispatch({
-                type: 'SELECT_ALL_STUDENTS',
-            })
-        }
-    }
+        const availableStudents = getAllStudents().studentProfiles;
+
+        dispatch({
+            type: 'SELECT_ALL_STUDENTS',
+            payload: availableStudents,
+        });
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = isChecked;
+        });
+    };
 
     const onStudentChange = (student, changeType) =>
         dispatch({

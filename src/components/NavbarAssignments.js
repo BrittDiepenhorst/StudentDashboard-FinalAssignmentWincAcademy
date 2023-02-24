@@ -13,6 +13,7 @@ const AssignmentFilters = ({ value: assigments, onChange }) => {
             const changeType = checked ? 'removed' : 'added'
             onChange(assignment, changeType)
         }
+
         return (
             <label key={assignment.id}>
                 <input
@@ -32,11 +33,9 @@ const AssignmentFilters = ({ value: assigments, onChange }) => {
     )
 }
 
-const onFilterChange = (input) => { let { value, checked } = input.target; }
+// const onFilterChange = (input) => { let { value, checked } = input.target; }
 
 const NavbarAssignments = () => {
-
-    const [checkboxes, setCheckboxes] = useState({});
 
     const dispatch = useDispatch();
     const { assignments } = useSelector((state) => state.assignments)
@@ -45,22 +44,17 @@ const NavbarAssignments = () => {
         const checkboxes = document.querySelectorAll('.checkboxdetails');
         checkboxes.forEach((checkbox) => {
             checkbox.checked = true;
-            const fakeInput = {
-                target: {
-                    value: checkbox.value,
-                    checked: true,
-                },
-            };
-            onFilterChange(fakeInput);
+            //     const fakeInput = {
+            //         target: {
+            //             value: checkbox.value,
+            //             checked: true,
+            //         },
+            //     };
+            //     onFilterChange(fakeInput);
         });
 
-        console.log(event.target)
-
-        const { id, checked } = event.target;
-        setCheckboxes((prevCheckboxes) => ({
-            ...prevCheckboxes,
-            [id]: checked,
-        }));
+        // console.log(event.target)
+        // const { id, checked } = event.target;
 
         dispatch({
             type: 'SELECT_ALL_ASSIGNMENTS',
